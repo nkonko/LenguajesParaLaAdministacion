@@ -22,7 +22,12 @@
 
         public List<User> Get()
         {
-            throw new System.NotImplementedException();
+            var query = "SELECT * FROM Userdb";
+
+            return CatchException(() =>
+            {
+                return Exec<User>(query);
+            });
         }
 
         public User GetUser(int id)

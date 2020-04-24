@@ -35,6 +35,7 @@
       <HintPath>..\packages\Dapper.1.50.5\lib\net451\Dapper.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -44,10 +45,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Implementation\FamilyDao.cs" />
+    <Compile Include="Implementation\PatentDao.cs" />
     <Compile Include="Implementation\UserDao.cs" />
+    <Compile Include="Interfaces\IFamilyDao.cs" />
+    <Compile Include="Interfaces\IPatentDao.cs" />
     <Compile Include="Interfaces\IUserDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\BaseDao.cs" />
+    <Compile Include="Utils\SqlUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
