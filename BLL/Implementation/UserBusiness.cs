@@ -4,7 +4,7 @@
     using DAL.Interfaces;
     using System.Collections.Generic;
 
-    public class UserBusiness : ICRUD<User>
+    public class UserBusiness : IUserBusiness
     {
         private readonly IUserDao userDao;
 

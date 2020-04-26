@@ -41,13 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Familia.cs" />
-    <Compile Include="FamiliaPatente.cs" />
-    <Compile Include="FamiliaUsuario.cs" />
-    <Compile Include="Patente.cs" />
+    <Compile Include="Family.cs" />
+    <Compile Include="PatentFamily.cs" />
+    <Compile Include="UserFamily.cs" />
+    <Compile Include="Interfaces\ICRUD.cs" />
+    <Compile Include="Patent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Usuario.cs" />
-    <Compile Include="UsuarioPatente.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserPatent.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

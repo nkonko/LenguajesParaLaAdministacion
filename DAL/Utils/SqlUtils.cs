@@ -7,7 +7,7 @@
     {
         public static SqlConnection Connection()
         {
-            var conn = new SqlConnection(ConfigurationManager.AppSettings["connString"]);
+            var conn = new SqlConnection(ConfigurationManager.ConnectionStrings["connString"].ConnectionString);
             return conn;
         }
 
