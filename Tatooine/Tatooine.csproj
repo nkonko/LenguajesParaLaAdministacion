@@ -108,6 +108,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Css\Style.css">
+      <DependentUpon>Style.scss</DependentUpon>
+    </Content>
+    <Content Include="Css\Style.min.css">
+      <DependentUpon>Style.css</DependentUpon>
+    </Content>
+    <Content Include="Views\Login.aspx" />
     <Content Include="Views\About.aspx" />
     <Content Include="Views\Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -127,6 +134,12 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="compilerconfig.json" />
+    <None Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </None>
+    <Content Include="Css\Login.scss" />
+    <Content Include="Css\Variables.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -165,6 +178,13 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IOCContainer.cs" />
+    <Compile Include="Views\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -213,11 +233,25 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BE\BE.csproj">
+      <Project>{f3deda98-e42e-4b18-bd80-cfd932b6c240}</Project>
+      <Name>BE</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{68F897E5-D897-4BC8-B46B-B5DB72066E1E}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{9CD26484-B753-4548-9DDF-00EBD097B958}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Css\Style.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
