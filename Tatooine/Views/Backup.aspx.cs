@@ -1,0 +1,43 @@
+﻿using DAL.Utils;
+using Microsoft.SqlServer.Management.Common;
+using Microsoft.SqlServer.Management.Smo;
+using System;
+
+namespace Tatooine.Views
+{
+    public partial class Backup : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void BackupButton_Click(object sender, EventArgs e)
+        {
+            //var ruta = RutaDestinoTextBox.Text;
+            var ruta = "C:\\Program Files\\Microsoft SQL Server\\MSSQL14.SQLEXPRESS\\MSSQL\\Backup\\Backup";
+
+            if (string.IsNullOrWhiteSpace(ruta))
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Debe rellenar la ruta');</script>");
+                return;
+            }
+
+            try
+            {
+                var dbServer = new Server(new ServerConnection(SqlUtils.Connection()));
+                var dbBackUp = new Microsoft.SqlServer.Management.Smo.Backup() { Action = BackupActionType.Database, Database = "Tatooine" };
+
+                dbBackUp.Devices.AddDevice(ruta.Trim() + ".bak", DeviceType.File);
+                dbBackUp.Initialize = true;
+                dbBackUp.SqlBackupAsync(dbServer);
+            }
+            catch (Exception ex)
+            {
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Ocurrio un error');</script>");
+                Response.Write(ex.Message);
+                return;
+            }
+        }
+    }
+}

@@ -3,6 +3,7 @@
     using Autofac;
     using BLL;
     using DAL;
+    using DAL.Implementation;
     using DAL.Interfaces;
 
     public static class IOCContainer
@@ -24,6 +25,7 @@
             var contBuilder = new ContainerBuilder();
             contBuilder.RegisterType<UserBusiness>().As<IUserBusiness>().SingleInstance();
             contBuilder.RegisterType<UserDao>().As<IUserDao>().SingleInstance();
+            contBuilder.RegisterType<FamilyDao>().As<IFamilyDao>().SingleInstance();
             return contBuilder.Build();
         }
     }
