@@ -2,6 +2,7 @@
 using Microsoft.SqlServer.Management.Common;
 using Microsoft.SqlServer.Management.Smo;
 using System;
+using Tatooine.Helpers;
 
 namespace Tatooine.Views
 {
@@ -19,7 +20,8 @@ namespace Tatooine.Views
 
             if (string.IsNullOrWhiteSpace(ruta))
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Debe rellenar la ruta');</script>");
+                this.SendAlert("Debe rellenar la ruta");
+
                 return;
             }
 
@@ -34,7 +36,7 @@ namespace Tatooine.Views
             }
             catch (Exception ex)
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Ocurrio un error');</script>");
+                this.SendAlert("Ocurrio un error");
                 Response.Write(ex.Message);
                 return;
             }

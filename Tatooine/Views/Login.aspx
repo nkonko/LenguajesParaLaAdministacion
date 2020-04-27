@@ -13,7 +13,7 @@
                         <label for="exampleInputPassword1">Password</label>
                         <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                     </div>
-                    <button type="submit" class="btn btn-default">Submit</button>
+                    <asp:Button ID="SubmitButton" class="btn btn-block btn-primary" Text="Ingresar" runat="server" OnClick="SubmitButton_Click" />
                 </form>
             </div>
         </div>
