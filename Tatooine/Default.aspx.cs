@@ -8,12 +8,10 @@ namespace Tatooine
 {
     public partial class _Default : Page
     {
-        private IUserBusiness userBusiness;
+        private IUserBusiness userBusiness = IOCContainer.Resolve<IUserBusiness>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            userBusiness = IOCContainer.Resolve<IUserBusiness>();
-
             if (!Page.IsPostBack)
             {
                 UserList.DataSource = userBusiness.Get();

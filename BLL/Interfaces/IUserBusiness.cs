@@ -4,5 +4,6 @@
 
     public interface IUserBusiness : ICRUD<User>
     {
+        User LogIn(string userName, string psw);
     }
 }

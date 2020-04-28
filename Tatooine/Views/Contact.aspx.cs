@@ -8,7 +8,12 @@ namespace Tatooine
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] != null && Session["Pwd"] != null)
+            {
 
+            }
+
+            Response.Redirect("Login1.aspx");
         }
     }
 }

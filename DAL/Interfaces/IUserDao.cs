@@ -7,7 +7,7 @@
     {
         List<User> GetUserWithPatentAndFamily();
 
-        User GetUser(int id);
+        User GetUser(string UserName);
 
         List<Patent> GetUserPatent(int id);
     }
