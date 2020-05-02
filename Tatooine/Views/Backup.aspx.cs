@@ -17,19 +17,15 @@ namespace Tatooine.Views
         {
             //var ruta = RutaDestinoTextBox.Text;
             var ruta = "C:\\Program Files\\Microsoft SQL Server\\MSSQL14.SQLEXPRESS\\MSSQL\\Backup\\Backup";
-
             if (string.IsNullOrWhiteSpace(ruta))
             {
-                this.SendAlert("Debe rellenar la ruta");
-
+                this.SendAlert("Debe selecciona una ruta.");
                 return;
             }
-
             try
             {
                 var dbServer = new Server(new ServerConnection(SqlUtils.Connection()));
                 var dbBackUp = new Microsoft.SqlServer.Management.Smo.Backup() { Action = BackupActionType.Database, Database = "Tatooine" };
-
                 dbBackUp.Devices.AddDevice(ruta.Trim() + ".bak", DeviceType.File);
                 dbBackUp.Initialize = true;
                 dbBackUp.SqlBackupAsync(dbServer);
@@ -40,6 +36,11 @@ namespace Tatooine.Views
                 Response.Write(ex.Message);
                 return;
             }
+        }
+
+        protected void FileSystem_Click(object sender, EventArgs e)
+        {
+            this.SendAlert("Debe selecciona una ruta.");
         }
     }
 }

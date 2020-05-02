@@ -1,0 +1,10 @@
+﻿@import "Variables.scss";
+
+.container.restore {
+    .panel-heading {
+        background-color: $primary-color !important;
+    }
+    .input-bar {
+        margin: 0 0 1em 0;
+    }
+}
