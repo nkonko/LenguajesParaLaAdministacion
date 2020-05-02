@@ -162,6 +162,8 @@
     </None>
     <Content Include="Css\Login.scss" />
     <Content Include="Css\Variables.scss" />
+    <Content Include="Css\AltaSolicitud.scss" />
+    <Content Include="Css\Globals.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -195,6 +197,7 @@
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login1.aspx" />
     <Content Include="Views\SignUp.aspx" />
+    <Content Include="Views\AltaSolicitud.aspx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
     <Content Include="Site.Mobile.Master" />
@@ -277,6 +280,13 @@
     </Compile>
     <Compile Include="Views\SignUp.aspx.designer.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AltaSolicitud.aspx.cs">
+      <DependentUpon>AltaSolicitud.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\AltaSolicitud.aspx.designer.cs">
+      <DependentUpon>AltaSolicitud.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
