@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Backup.aspx.cs" Inherits="Tatooine.Views.Backup" MasterPageFile="~/Site.Master" %>
+﻿<%@ Page Language="C#" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Restore.aspx.cs" Inherits="Tatooine.Views.Restore" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="container backup">
+    <div class="container restore">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="row-md-12">
-                    <h2>Realizar Backup</h2>
+                    <h2>Realizar Restore</h2>
                 </div>
             </div>
             <div class="panel-body">
@@ -25,7 +25,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4 col-sm-offset-4">
-                        <asp:Button ID="Button1" class="btnSubmit btn btn-block btn-success" Text="Aceptar" runat="server" OnClick="BackupButton_Click" />
+                        <asp:Button ID="RestoreButton" class="btnSubmit btn btn-block btn-success" Text="Aceptar" runat="server" OnClick="RestoreButton_Click" />
                     </div>
                 </div>
             </div>

@@ -75,6 +75,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -162,6 +163,8 @@
     </None>
     <Content Include="Css\Login.scss" />
     <Content Include="Css\Variables.scss" />
+    <Content Include="Css\RequestHistory.scss" />
+    <Content Include="Css\Restore.scss" />
     <Content Include="Css\AltaSolicitud.scss" />
     <Content Include="Css\Globals.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
@@ -196,6 +199,8 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login1.aspx" />
+    <Content Include="Views\RequestHistory.aspx" />
+    <Content Include="Views\Restore.aspx" />
     <Content Include="Views\SignUp.aspx" />
     <Content Include="Views\AltaSolicitud.aspx" />
     <Content Include="Web.config" />
@@ -273,6 +278,19 @@
     </Compile>
     <Compile Include="Views\Login1.aspx.designer.cs">
       <DependentUpon>Login1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RequestHistory.aspx.cs">
+      <DependentUpon>RequestHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RequestHistory.aspx.designer.cs">
+      <DependentUpon>RequestHistory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restore.aspx.cs">
+      <DependentUpon>Restore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Restore.aspx.designer.cs">
+      <DependentUpon>Restore.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>

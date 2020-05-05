@@ -11,7 +11,7 @@ namespace Tatooine.Views
 {
 
 
-    public partial class Backup
+    public partial class Restore
     {
 
         /// <summary>
@@ -33,12 +33,12 @@ namespace Tatooine.Views
         protected global::System.Web.UI.WebControls.Button FileSystemButton;
 
         /// <summary>
-        /// Control Button1.
+        /// Control RestoreButton.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button RestoreButton;
     }
 }
