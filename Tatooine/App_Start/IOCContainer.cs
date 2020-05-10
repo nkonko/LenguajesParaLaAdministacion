@@ -2,6 +2,8 @@
 {
     using Autofac;
     using BLL;
+    using BLL.Implementation;
+    using BLL.Interfaces;
     using DAL;
     using DAL.Implementation;
     using DAL.Interfaces;
@@ -26,6 +28,10 @@
             contBuilder.RegisterType<UserBusiness>().As<IUserBusiness>().SingleInstance();
             contBuilder.RegisterType<UserDao>().As<IUserDao>().SingleInstance();
             contBuilder.RegisterType<FamilyDao>().As<IFamilyDao>().SingleInstance();
+            contBuilder.RegisterType<PatentDao>().As<IPatentDao>().SingleInstance();
+            contBuilder.RegisterType<AccountBusiness>().As<IAccountBusiness>().SingleInstance();
+            contBuilder.RegisterType<FamilyBusiness>().As<IFamilyBusiness>().SingleInstance();
+            contBuilder.RegisterType<PatentBusiness>().As<IPatentBusiness>().SingleInstance();
             return contBuilder.Build();
         }
     }

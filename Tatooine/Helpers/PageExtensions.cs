@@ -5,9 +5,9 @@
 
     public static class PageExtensions
     {
-        public static void SendAlert(this Page page, string Message)
+        public static void SendAlert(this Page page, string message)
         {
-            page.ClientScript.RegisterStartupScript(page.GetType(), "Scripts", $"<script>alert('{Message}');</script>");
+            page.ClientScript.RegisterStartupScript(page.GetType(), "Scripts", $"<script>alert('{message}');</script>");
         }
 
         public static void CatchException(this Page page, Action func, Action<Exception> onError = null)

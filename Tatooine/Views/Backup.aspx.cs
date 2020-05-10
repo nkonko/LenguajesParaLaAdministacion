@@ -1,21 +1,19 @@
-﻿using DAL.Utils;
-using Microsoft.SqlServer.Management.Common;
-using Microsoft.SqlServer.Management.Smo;
-using System;
-using Tatooine.Helpers;
-
-namespace Tatooine.Views
+﻿namespace Tatooine.Views
 {
+    using DAL.Utils;
+    using Microsoft.SqlServer.Management.Common;
+    using Microsoft.SqlServer.Management.Smo;
+    using System;
+    using Tatooine.Helpers;
+
     public partial class Backup : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void BackupButton_Click(object sender, EventArgs e)
         {
-            //var ruta = RutaDestinoTextBox.Text;
             var ruta = "C:\\Program Files\\Microsoft SQL Server\\MSSQL14.SQLEXPRESS\\MSSQL\\Backup\\Backup";
 
             if (string.IsNullOrWhiteSpace(ruta))

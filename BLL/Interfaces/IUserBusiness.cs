@@ -1,9 +1,9 @@
-﻿namespace BLL
+﻿namespace BLL.Interfaces
 {
     using BE;
 
     public interface IUserBusiness : ICRUD<User>
     {
-        User LogIn(string userName, string psw);
+        User GetEncriptedUser(string userName);
     }
 }

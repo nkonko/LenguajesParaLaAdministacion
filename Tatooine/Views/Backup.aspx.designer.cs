@@ -9,11 +9,8 @@
 
 namespace Tatooine.Views
 {
-
-
     public partial class Backup
     {
-
         /// <summary>
         /// Control RutaDestinoTextBox.
         /// </summary>

@@ -20,18 +20,28 @@
 
         public List<Family> Get()
         {
-            throw new System.NotImplementedException();
+            var query = "SELECT * FROM Family";
+
+            return CatchException(() =>
+            {
+                return Exec<Family>(query);
+            });
         }
 
         public List<Family> GetUserFamily(int id)
         {
             var userFamilies = new List<int>();
             var families = Get();
-            var queryString = $"SELECT FamiliaId FROM FamiliaUsuario WHERE UsuarioId = {id}";
+            var query = $"SELECT FamilyId FROM UserFamily WHERE UserId = @Id";
 
             userFamilies = CatchException(() =>
             {
-                return Exec<int>(queryString);
+                return Exec<int>(
+                    query,
+                    new
+                    {
+                        @Id = id
+                    });
             });
 
             return families.FindAll(x => userFamilies.Any(y => y == x.Id));
