@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementation\FamilyDao.cs" />
+    <Compile Include="Implementation\Helpers\DigitVerifier.cs" />
+    <Compile Include="Interfaces\IDigitVerifier.cs" />
     <Compile Include="Implementation\PatentDao.cs" />
     <Compile Include="Implementation\UserDao.cs" />
     <Compile Include="Interfaces\IFamilyDao.cs" />

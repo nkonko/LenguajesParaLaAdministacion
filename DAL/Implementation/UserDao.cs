@@ -9,15 +9,23 @@
 
     public class UserDao : BaseDao, IUserDao
     {
-        public const string Key = "bZr2URKx";
-        public const string Iv = "HNtgQw0w";
+        private const string Key = "bZr2URKx";
+        private const string Iv = "HNtgQw0w";
+
+        private readonly IDigitVerifier verifier;
+
+        public UserDao(IDigitVerifier verifier)
+        {
+            this.verifier = verifier;
+        }
 
         public bool Add(User obj)
         {
             var encryptedPsw = MD5.ComputeMD5Hash(obj.Password);
             var encryptedUsr = DES.Encrypt(obj.UserName, Key, Iv);
+            var finalString = obj.Name + encryptedPsw + encryptedUsr + 0;
 
-            var query = "INSERT INTO Userdb ([Name],[Password],[UserName],[LoginAttempt]) VALUES (@Name, @Password, @UserName, @LoginAttempt)";
+            var query = "INSERT INTO Userdb ([Name],[Password],[UserName],[LoginAttempt],[DVH]) VALUES (@Name, @Password, @UserName, @LoginAttempt, @Dvh)";
 
             return CatchException(() =>
             {
@@ -28,7 +36,8 @@
                         @Name = obj.Name,
                         @Password = encryptedPsw,
                         @UserName = encryptedUsr,
-                        @LoginAttempt = 0
+                        @LoginAttempt = 0,
+                        @Dvh = verifier.CalculateDVH(finalString)
                     });
             });
         }
