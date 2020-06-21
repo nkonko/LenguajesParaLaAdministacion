@@ -91,7 +91,7 @@ namespace DAL
         public List<BE.Bitacora> ObtenerTodos()
         {
 
-            var query = "select id_log, id_usuario, funcionalidad, criticidad, descripcion, fecha from Bitacora";
+            var query = "select id_log, id_usuario, funcionalidad, criticidad, descripcion, fecha from Bitacora order by fecha ASC";
 
 
             return CatchException(() =>

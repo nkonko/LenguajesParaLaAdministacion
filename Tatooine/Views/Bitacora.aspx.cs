@@ -23,9 +23,7 @@ namespace Tatooine.Views
         {
             DAL.BitacoraDao dalbit = new DAL.BitacoraDao();
 
-            // var dateAndTime = DateTime.Now;
-            // var date = dateAndTime.Date;
-            //date= date.ToShortDateString();
+            
             DateTime hoy = DateTime.Now;
 
             // dalbit.Error(4, "algo", "desc", hoy);
