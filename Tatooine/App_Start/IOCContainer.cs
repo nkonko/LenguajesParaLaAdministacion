@@ -26,7 +26,6 @@
             contBuilder.RegisterType<UserBusiness>().As<IUserBusiness>().SingleInstance();
             contBuilder.RegisterType<UserDao>().As<IUserDao>().SingleInstance();
             contBuilder.RegisterType<FamilyDao>().As<IFamilyDao>().SingleInstance();
-            contBuilder.RegisterType<RestoreDao>().As<IRestoreDao>().SingleInstance();
             return contBuilder.Build();
         }
     }

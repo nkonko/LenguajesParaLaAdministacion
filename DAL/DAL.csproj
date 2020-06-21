@@ -49,9 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementation\FamilyDao.cs" />
-    <Compile Include="Interfaces\IRestoreDao.cs" />
     <Compile Include="Implementation\PatentDao.cs" />
-    <Compile Include="Implementation\RestoreDao.cs" />
     <Compile Include="Implementation\UserDao.cs" />
     <Compile Include="Interfaces\IFamilyDao.cs" />
     <Compile Include="Interfaces\IPatentDao.cs" />
