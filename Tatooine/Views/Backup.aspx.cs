@@ -29,6 +29,7 @@ namespace Tatooine.Views
             {
                 var dbServer = new Server(new ServerConnection(SqlUtils.Connection()));
                 var dbBackUp = new Microsoft.SqlServer.Management.Smo.Backup() { Action = BackupActionType.Database, Database = "Tatooine" };
+                
 
                 dbBackUp.Devices.AddDevice(ruta.Trim() + ".bak", DeviceType.File);
                 dbBackUp.Initialize = true;
@@ -41,5 +42,9 @@ namespace Tatooine.Views
                 return;
             }
         }
+
+
+
+
     }
 }
