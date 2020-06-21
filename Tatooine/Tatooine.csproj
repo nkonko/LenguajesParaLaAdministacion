@@ -135,6 +135,7 @@
     <Content Include="Css\Style.min.css">
       <DependentUpon>Style.css</DependentUpon>
     </Content>
+    <Content Include="Views\Bitacora.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\About.aspx" />
     <Content Include="Views\Backup.aspx" />
@@ -196,6 +197,7 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Login1.aspx" />
+    <Content Include="Views\Restore.aspx" />
     <Content Include="Views\SignUp.aspx" />
     <Content Include="Views\AltaSolicitud.aspx" />
     <Content Include="Web.config" />
@@ -206,6 +208,13 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IOCContainer.cs" />
     <Compile Include="Helpers\PageExtensions.cs" />
+    <Compile Include="Views\Bitacora.aspx.cs">
+      <DependentUpon>Bitacora.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Bitacora.aspx.designer.cs">
+      <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -273,6 +282,13 @@
     </Compile>
     <Compile Include="Views\Login1.aspx.designer.cs">
       <DependentUpon>Login1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restore.aspx.cs">
+      <DependentUpon>Restore.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Restore.aspx.designer.cs">
+      <DependentUpon>Restore.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\SignUp.aspx.cs">
       <DependentUpon>SignUp.aspx</DependentUpon>
