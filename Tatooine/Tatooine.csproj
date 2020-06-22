@@ -221,6 +221,7 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Lockout.aspx" />
+    <Content Include="Views\RequestHistory.aspx" />
     <Content Include="Views\Restore.aspx" />
     <Content Include="Views\SignUp.aspx" />
     <Content Include="Views\UserHome.aspx" />
