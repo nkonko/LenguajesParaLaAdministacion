@@ -157,6 +157,8 @@
     <Content Include="Css\Style.min.css">
       <DependentUpon>Style.css</DependentUpon>
     </Content>
+    <Content Include="Views\Bitacora.aspx" />
+    <Content Include="Views\Login.aspx" />
     <Content Include="Views\About.aspx" />
     <Content Include="Views\Backup.aspx" />
     <Content Include="Views\Contact.aspx" />
@@ -219,7 +221,8 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Lockout.aspx" />
-    <Content Include="Views\Login.aspx" />
+    <Content Include="Views\RequestHistory.aspx" />
+    <Content Include="Views\Restore.aspx" />
     <Content Include="Views\SignUp.aspx" />
     <Content Include="Views\UserHome.aspx" />
     <Content Include="Views\AltaSolicitud.aspx" />
@@ -231,6 +234,20 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IOCContainer.cs" />
     <Compile Include="Helpers\PageExtensions.cs" />
+    <Compile Include="Views\Bitacora.aspx.cs">
+      <DependentUpon>Bitacora.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Bitacora.aspx.designer.cs">
+      <DependentUpon>Bitacora.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -291,13 +308,6 @@
     </Compile>
     <Compile Include="Views\Lockout.aspx.designer.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\RequestHistory.aspx.cs">
       <DependentUpon>RequestHistory.aspx</DependentUpon>
@@ -397,7 +407,7 @@
     </ItemGroup>
     <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
     <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
-</Target>
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
