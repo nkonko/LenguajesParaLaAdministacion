@@ -221,8 +221,6 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Lockout.aspx" />
-    <Content Include="Views\Login.aspx" />
-    <Content Include="Views\Login1.aspx" />
     <Content Include="Views\Restore.aspx" />
     <Content Include="Views\SignUp.aspx" />
     <Content Include="Views\UserHome.aspx" />
@@ -310,25 +308,11 @@
     <Compile Include="Views\Lockout.aspx.designer.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Login.aspx.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Login.aspx.designer.cs">
-      <DependentUpon>Login.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Views\RequestHistory.aspx.cs">
       <DependentUpon>RequestHistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\RequestHistory.aspx.designer.cs">
       <DependentUpon>RequestHistory.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Views\Restore.aspx.cs">
-      <DependentUpon>Restore.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Views\Restore.aspx.designer.cs">
-      <DependentUpon>Restore.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Restore.aspx.cs">
       <DependentUpon>Restore.aspx</DependentUpon>
@@ -422,7 +406,7 @@
     </ItemGroup>
     <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
     <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
-</Target>
+  </Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
