@@ -51,6 +51,8 @@
     <Compile Include="Implementation\BitacoraDao.cs" />
     <Compile Include="Interfaces\IBitacoraDao.cs" />
     <Compile Include="Implementation\FamilyDao.cs" />
+    <Compile Include="Implementation\Helpers\DigitVerifier.cs" />
+    <Compile Include="Interfaces\IDigitVerifier.cs" />
     <Compile Include="Interfaces\IRestoreDao.cs" />
     <Compile Include="Implementation\PatentDao.cs" />
     <Compile Include="Implementation\RestoreDao.cs" />

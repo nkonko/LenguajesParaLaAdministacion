@@ -9,18 +9,23 @@
 
     public class UserDao : BaseDao, IUserDao
     {
-        public const string Key = "bZr2URKx";
-        public const string Iv = "HNtgQw0w";
+        private const string Key = "bZr2URKx";
+        private const string Iv = "HNtgQw0w";
 
-        private readonly IFamilyDao familyDao;
-        private readonly IPatentDao patentDao;
+        private readonly IDigitVerifier verifier;
+
+        public UserDao(IDigitVerifier verifier)
+        {
+            this.verifier = verifier;
+        }
 
         public bool Add(User obj)
         {
             var encryptedPsw = MD5.ComputeMD5Hash(obj.Password);
             var encryptedUsr = DES.Encrypt(obj.UserName, Key, Iv);
+            var finalString = obj.Name + encryptedPsw + encryptedUsr + 0;
 
-            var query = "INSERT INTO Userdb ([Name],[Password],[UserName]) VALUES (@Name, @Password, @UserName)";
+            var query = "INSERT INTO Userdb ([Name],[Password],[UserName],[LoginAttempt],[DVH]) VALUES (@Name, @Password, @UserName, @LoginAttempt, @Dvh)";
 
             return CatchException(() =>
             {
@@ -30,7 +35,9 @@
                     {
                         @Name = obj.Name,
                         @Password = encryptedPsw,
-                        @UserName = encryptedUsr
+                        @UserName = encryptedUsr,
+                        @LoginAttempt = 0,
+                        @Dvh = verifier.CalculateDVH(finalString)
                     });
             });
         }
@@ -58,38 +65,13 @@
 
             return CatchException(() =>
             {
-                return Exec<User>(query,
+                return Exec<User>(
+                    query,
                     new
                     {
                         @UserName = encryptedUsr
                     });
             }).FirstOrDefault();
-        }
-
-        public List<Patent> GetUserPatent(int id)
-        {
-            var queryString = $"SELECT UsuarioPatente.IdPatente, Patente.Descripcion, UsuarioPatente.Negada FROM UsuarioPatente INNER JOIN Patente ON UsuarioPatente.IdPatente = Patente.IdPatente WHERE UsuarioId = {id}";
-
-            return CatchException(() =>
-            {
-                return Exec<Patent>(queryString);
-            });
-        }
-
-        public List<User> GetUserWithPatentAndFamily()
-        {
-            var users = Get();
-
-            foreach (var user in users)
-            {
-                user.Family = new List<Family>();
-                user.Patent = new List<Patent>();
-
-                user.Family = familyDao.GetUserFamily(user.Id);
-                user.Patent = patentDao.GetUserPatents(user.Id);
-            }
-
-            return users;
         }
 
         public bool Update(User obj)

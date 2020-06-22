@@ -4,17 +4,17 @@
 
 <html lang="es">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><%: Page.Title %> - Mi aplicación ASP.NET</title>
+    <title><%: Page.Title %></title>
 
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
 
-    <webopt:bundlereference runat="server" path="~/Content/css" />
-    <webopt:bundlereference runat="server" path="~/Css/Style.min.css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Css/Style.min.css" />
 
 </head>
 <body>
@@ -47,13 +47,19 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">Nombre de la aplicación</a>
+                    <a class="navbar-brand" runat="server" href="~/">T A T O O I N E</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li><a runat="server" href="~/">Inicio</a></li>
+                        <li><a runat="server" href="~/Views/UserHome">Inicio</a></li>
                         <li><a runat="server" href="~/Views/About">Acerca de</a></li>
-                        <li><a runat="server" href="~/Views/Contact">Contacto</a></li>
+                        <li><a runat="server" href="~/Views/RequestHistory">Historial de Solicitudes</a></li>
+                        <li><a runat="server" href="~/Views/Backup">Backup</a></li>
+                        <li><a runat="server" href="~/Views/Restore">Restore</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a runat="server" href="~/Views/SignUp"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                        <li><a runat="server" href="~/Views/Login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
                     </ul>
                 </div>
             </div>

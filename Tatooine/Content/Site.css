@@ -29,3 +29,14 @@ textarea {
         padding: 0;
     }
 }
+
+a.navbar-brand {
+    font-family: Calibri;
+    font-size: 25px;
+    text-decoration: none;
+    color: white;
+}
+
+    a.navbar-brand:hover {
+        text-decoration: none;
+    }

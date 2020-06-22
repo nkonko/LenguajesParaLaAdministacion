@@ -5,3 +5,16 @@
   border-radius: 6px;
   margin-top: 36px;
   color: white; }
+
+.container.request-history .panel-heading {
+  background-color: #337ab7 !important; }
+
+.container.request-history .panel-body .table-container .table .thread-dark {
+  background-color: #0b3954;
+  color: #bfd7ea; }
+
+.container.restore .panel-heading {
+  background-color: #337ab7 !important; }
+
+.container.restore .input-bar {
+  margin: 0 0 1em 0; }

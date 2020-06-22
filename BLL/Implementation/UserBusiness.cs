@@ -1,8 +1,8 @@
 ﻿namespace BLL
 {
     using BE;
+    using BLL.Interfaces;
     using DAL.Interfaces;
-    using EasyEncryption;
     using System.Collections.Generic;
 
     public class UserBusiness : IUserBusiness
@@ -34,16 +34,9 @@
             return userDao.Add(obj);
         }
 
-        public User LogIn(string userName, string psw)
+        public User GetEncriptedUser(string userName)
         {
-            var dbUser = userDao.GetUser(userName);
-
-            if (dbUser.Password == MD5.ComputeMD5Hash(psw))
-            {
-                return dbUser;
-            }
-
-            return null;
+            return userDao.GetUser(userName);
         }
     }
 }

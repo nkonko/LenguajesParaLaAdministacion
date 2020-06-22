@@ -6,5 +6,7 @@
     public interface IPatentDao : ICRUD<Patent>
     {
         List<Patent> GetUserPatents(int id);
+
+        List<Patent> GetFamilyPatents(int familyId);
     }
 }
