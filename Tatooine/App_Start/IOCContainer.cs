@@ -35,6 +35,7 @@
             contBuilder.RegisterType<PatentBusiness>().As<IPatentBusiness>().SingleInstance();
             contBuilder.RegisterType<DigitVerifier>().As<IDigitVerifier>().SingleInstance();
             contBuilder.RegisterType<RestoreDao>().As<IRestoreDao>().SingleInstance();
+            contBuilder.RegisterType<IntegrityBusiness>().As<IIntegrityBusiness>().SingleInstance();
             return contBuilder.Build();
         }
     }

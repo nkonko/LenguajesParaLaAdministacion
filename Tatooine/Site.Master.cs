@@ -8,6 +8,27 @@ namespace Tatooine
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["UserName"] != null)
+            {
+
+                Control navbarStart = Page.Master.FindControl("startNav");
+                Control loguedNavbar = Page.Master.FindControl("loguedNav");
+
+                if (navbarStart != null && loguedNavbar != null)
+                {
+                    navbarStart.Visible = false;
+                    loguedNavbar.Visible = true;
+                }
+            }
+            else
+            {
+                Control loguedNavbar = Page.Master.FindControl("loguedNav");
+
+                if (loguedNavbar != null)
+                {
+                    loguedNavbar.Visible = false;
+                }
+            }
         }
     }
 }

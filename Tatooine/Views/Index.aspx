@@ -7,7 +7,7 @@
             <asp:Label runat="server" ID="GreetingsLabel"></asp:Label>
         </h1>
         <p>
-            Ingrese a login para iniciar
+           <%=LoginMessage %>
         </p>
     </div>
 
