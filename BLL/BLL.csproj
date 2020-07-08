@@ -71,9 +71,11 @@
     <Compile Include="Implementation\AccountBusiness.cs" />
     <Compile Include="Implementation\AltaSolicitudBusiness.cs" />
     <Compile Include="Implementation\FamilyBusiness.cs" />
+    <Compile Include="Implementation\IntegrityBusiness.cs" />
     <Compile Include="Interfaces\IAltaSolicitudBusiness.cs" />
     <Compile Include="Interfaces\IAccountBusiness.cs" />
     <Compile Include="Interfaces\IFamilyBusiness.cs" />
+    <Compile Include="Interfaces\IIntegrityBusiness.cs" />
     <Compile Include="Interfaces\IPatentBusiness.cs" />
     <Compile Include="Implementation\PatentBusiness.cs" />
     <Compile Include="Interfaces\IUserBusiness.cs" />

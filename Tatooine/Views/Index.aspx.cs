@@ -23,7 +23,6 @@ namespace Tatooine
                     GreetingsLabel.Text = "Bienvenido a Tatooine";
                     LoginMessage = "Ingrese a login para iniciar";
                 }
-
             }
             else
             {
