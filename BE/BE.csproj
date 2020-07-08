@@ -65,6 +65,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AltaSolicitud.cs" />
     <Compile Include="Family.cs" />
     <Compile Include="PatentFamily.cs" />
     <Compile Include="UserFamily.cs" />

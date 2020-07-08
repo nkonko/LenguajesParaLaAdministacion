@@ -69,7 +69,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementation\AccountBusiness.cs" />
+    <Compile Include="Implementation\AltaSolicitudBusiness.cs" />
     <Compile Include="Implementation\FamilyBusiness.cs" />
+    <Compile Include="Interfaces\IAltaSolicitudBusiness.cs" />
     <Compile Include="Interfaces\IAccountBusiness.cs" />
     <Compile Include="Interfaces\IFamilyBusiness.cs" />
     <Compile Include="Interfaces\IPatentBusiness.cs" />

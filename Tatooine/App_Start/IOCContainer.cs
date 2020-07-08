@@ -32,6 +32,7 @@
             contBuilder.RegisterType<AccountBusiness>().As<IAccountBusiness>().SingleInstance();
             contBuilder.RegisterType<FamilyBusiness>().As<IFamilyBusiness>().SingleInstance();
             contBuilder.RegisterType<PatentBusiness>().As<IPatentBusiness>().SingleInstance();
+            contBuilder.RegisterType<AltaSolicitudBusiness>().As<IAltaSolicitudBusiness>().SingleInstance();
             return contBuilder.Build();
         }
     }

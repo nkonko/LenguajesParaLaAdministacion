@@ -11,7 +11,7 @@
             </div>
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-4 col-sm-offset-4 form-container">
+                    <div class="col-md-4 col-sm-offset-4">
 
                         <div class="form-group">
                             <label for="producto_sol">Producto:</label>
