@@ -24,6 +24,8 @@
             {
                 var dbServer = new Server(new ServerConnection(SqlUtils.Connection()));
                 var dbBackUp = new Microsoft.SqlServer.Management.Smo.Backup() { Action = BackupActionType.Database, Database = "Tatooine" };
+                
+
                 dbBackUp.Devices.AddDevice(ruta.Trim() + ".bak", DeviceType.File);
                 dbBackUp.Initialize = true;
                 dbBackUp.SqlBackupAsync(dbServer);
@@ -40,5 +42,9 @@
         {
             this.SendAlert("Debe selecciona una ruta.");
         }
+
+
+
+
     }
 }

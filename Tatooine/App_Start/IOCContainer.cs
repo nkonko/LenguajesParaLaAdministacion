@@ -6,6 +6,7 @@
     using BLL.Interfaces;
     using DAL;
     using DAL.Implementation;
+    using DAL.Implementation.Helpers;
     using DAL.Interfaces;
 
     public static class IOCContainer
@@ -33,6 +34,9 @@
             contBuilder.RegisterType<FamilyBusiness>().As<IFamilyBusiness>().SingleInstance();
             contBuilder.RegisterType<PatentBusiness>().As<IPatentBusiness>().SingleInstance();
             contBuilder.RegisterType<AltaSolicitudBusiness>().As<IAltaSolicitudBusiness>().SingleInstance();
+            contBuilder.RegisterType<DigitVerifier>().As<IDigitVerifier>().SingleInstance();
+            contBuilder.RegisterType<RestoreDao>().As<IRestoreDao>().SingleInstance();
+            contBuilder.RegisterType<IntegrityBusiness>().As<IIntegrityBusiness>().SingleInstance();
             return contBuilder.Build();
         }
     }

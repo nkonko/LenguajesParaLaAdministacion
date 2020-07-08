@@ -22,6 +22,7 @@
             switch (loggedUser.SignInStatus)
             {
                 case SignInStatus.Success:
+                    Session["UserName"] = loggedUser.Name;
                     Response.Redirect("/Views/UserHome");
                     break;
                 case SignInStatus.LockedOut:
