@@ -1,10 +1,10 @@
 ﻿namespace Tatooine.Views
 {
     using BLL.Interfaces;
+    using BLL.Utils;
     using Microsoft.AspNet.Identity.Owin;
     using System;
     using System.Web.UI;
-    using Tatooine.App_Start;
 
     public partial class Login : Page
     {

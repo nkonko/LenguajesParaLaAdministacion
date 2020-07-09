@@ -1,4 +1,4 @@
-﻿namespace Tatooine.App_Start
+﻿namespace BLL.Utils
 {
     using Autofac;
     using BLL;
@@ -35,7 +35,10 @@
             contBuilder.RegisterType<PatentBusiness>().As<IPatentBusiness>().SingleInstance();
             contBuilder.RegisterType<DigitVerifier>().As<IDigitVerifier>().SingleInstance();
             contBuilder.RegisterType<RestoreDao>().As<IRestoreDao>().SingleInstance();
+            contBuilder.RegisterType<RestoreBusiness>().As<IRestoreBusiness>().SingleInstance();
             contBuilder.RegisterType<IntegrityBusiness>().As<IIntegrityBusiness>().SingleInstance();
+            contBuilder.RegisterType<BitacoraDao>().As<IBitacoraDao>().SingleInstance();
+            contBuilder.RegisterType<BitacoraBusiness>().As<IBitacoraBusiness>().SingleInstance();
             return contBuilder.Build();
         }
     }

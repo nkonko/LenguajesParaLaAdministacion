@@ -44,7 +44,19 @@
 
         public bool Delete(User obj)
         {
-            throw new System.NotImplementedException();
+            var encryptedUsr = DES.Encrypt(obj.UserName, Key, Iv);
+
+            var query = "SELECT * FROM Userdb WHERE UserName = @UserName";
+
+            return CatchException(() =>
+            {
+                return Exec(
+                    query,
+                    new
+                    {
+                        @UserName = encryptedUsr
+                    });
+            });
         }
 
         public List<User> Get()
@@ -76,7 +88,23 @@
 
         public bool Update(User obj)
         {
-            throw new System.NotImplementedException();
+            var encryptedUsr = DES.Encrypt(obj.UserName, Key, Iv);
+            var encryptedPsw = MD5.ComputeMD5Hash(obj.Password);
+            var finalString = obj.Name + encryptedPsw + encryptedUsr + 0;
+
+            var query = "UPDATE Userdb  SET Name = @Name ,Password = @Password , DVH = @Dvh WHERE UserName = @UserName ";
+
+            return CatchException(() =>
+            {
+                return Exec(
+                    query,
+                    new
+                    {
+                        @Name = obj.Name,
+                        @Password = encryptedPsw,
+                        @Dvh = verifier.CalculateDVH(finalString)
+                    });
+            });
         }
     }
 }

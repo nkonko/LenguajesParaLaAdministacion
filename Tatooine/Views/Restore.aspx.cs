@@ -1,17 +1,14 @@
-﻿using DAL.Interfaces;
-using DAL.Utils;
-using Microsoft.SqlServer.Management.Common;
-using Microsoft.SqlServer.Management.Smo;
-using System;
-using System.Windows.Forms;
-using Tatooine.App_Start;
-using Tatooine.Helpers;
-
-namespace Tatooine.Views
+﻿namespace Tatooine.Views
 {
+    using BLL.Interfaces;
+    using BLL.Utils;
+    using System;
+    using System.Windows.Forms;
+    using Tatooine.Helpers;
+
     public partial class Restore : System.Web.UI.Page
     {
-        private IRestoreDao restore = IOCContainer.Resolve<IRestoreDao>();
+        private IRestoreBusiness restore = IOCContainer.Resolve<IRestoreBusiness>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -43,7 +40,8 @@ namespace Tatooine.Views
 
             try
             {
-                restore.ExecuteRestore(ruta);
+                var result = restore.ExecuteRestore(ruta);
+
             }
             catch (Exception ex)
             {
