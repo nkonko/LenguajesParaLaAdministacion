@@ -1,11 +1,8 @@
 ﻿using BLL.Interfaces;
+using BLL.Utils;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Tatooine.App_Start;
 
 namespace Tatooine.Views
 {
@@ -38,7 +35,7 @@ namespace Tatooine.Views
             else
             {
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('Hubo un error');</script>");
-            } 
+            }
         }
 
         public void CleanControl(ControlCollection controles)
@@ -65,4 +62,4 @@ namespace Tatooine.Views
         }
     }
 }
-    
+
