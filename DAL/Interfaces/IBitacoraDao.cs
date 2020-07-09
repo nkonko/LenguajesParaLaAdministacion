@@ -1,24 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DAL
+﻿namespace DAL
 {
+    using BE;
+    using System;
+    using System.Collections.Generic;
+
     public interface IBitacoraDao
     {
+        List<Bitacora> GetBitacora(List<string> users, List<string> criticalities, DateTime from, DateTime to);
 
-
-       // void guardarRegistro(BE.Bitacora registro);
-
-        void Error(int id_usu, string funcionalidad, string descripcion, DateTime fecha);
-        void Warning(int id_usu, string funcionalidad, string descripcion, DateTime fecha);
-        void Info(int id_usu, string funcionalidad, string descripcion, DateTime fecha);
-
-
-        List<BE.Bitacora> ObtenerTodos();
-
-        List<BE.Bitacora> ObtenerFiltro(DateTime desde, DateTime hasta, string idusu, string criticidad);
+        List<Bitacora> GetBitacora();
     }
 }

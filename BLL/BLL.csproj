@@ -31,8 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
     <Reference Include="EasyEncryption, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\EasyEncryption.1.0.2\lib\EasyEncryption.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
@@ -69,14 +75,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementation\AccountBusiness.cs" />
+    <Compile Include="Implementation\BitacoraBusiness.cs" />
+    <Compile Include="Implementation\AltaSolicitudBusiness.cs" />
     <Compile Include="Implementation\FamilyBusiness.cs" />
+    <Compile Include="Implementation\IntegrityBusiness.cs" />
+    <Compile Include="Implementation\RestoreBusiness.cs" />
+    <Compile Include="Interfaces\IAltaSolicitudBusiness.cs" />
     <Compile Include="Interfaces\IAccountBusiness.cs" />
+    <Compile Include="Interfaces\IBitacoraBusiness.cs" />
     <Compile Include="Interfaces\IFamilyBusiness.cs" />
+    <Compile Include="Interfaces\IIntegrityBusiness.cs" />
     <Compile Include="Interfaces\IPatentBusiness.cs" />
     <Compile Include="Implementation\PatentBusiness.cs" />
+    <Compile Include="Interfaces\IRestoreBusiness.cs" />
     <Compile Include="Interfaces\IUserBusiness.cs" />
     <Compile Include="Implementation\UserBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utils\DatabaseConection.cs" />
+    <Compile Include="Utils\IOCContainer.cs" />
+    <Compile Include="Utils\Log4netExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">

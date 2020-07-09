@@ -47,6 +47,9 @@
     <Reference Include="Autofac, Version=4.8.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
       <HintPath>..\packages\Autofac.4.8.1\lib\net45\Autofac.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -232,7 +235,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
-    <Compile Include="App_Start\IOCContainer.cs" />
     <Compile Include="Helpers\PageExtensions.cs" />
     <Compile Include="Views\Bitacora.aspx.cs">
       <DependentUpon>Bitacora.aspx</DependentUpon>
@@ -311,6 +313,7 @@
     </Compile>
     <Compile Include="Views\RequestHistory.aspx.cs">
       <DependentUpon>RequestHistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\RequestHistory.aspx.designer.cs">
       <DependentUpon>RequestHistory.aspx</DependentUpon>
@@ -352,10 +355,6 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{68F897E5-D897-4BC8-B46B-B5DB72066E1E}</Project>
       <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{9CD26484-B753-4548-9DDF-00EBD097B958}</Project>
-      <Name>DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

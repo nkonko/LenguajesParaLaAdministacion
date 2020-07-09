@@ -11,6 +11,13 @@ namespace Tatooine
         void Application_Start(object sender, EventArgs e)
         {
             // Código que se ejecuta al iniciar la aplicación
+            log4net.Config.XmlConfigurator.Configure();
+            log4net.Core.Level nivelAlto = new log4net.Core.Level(50000, "ALTA");
+            log4net.LogManager.GetRepository().LevelMap.Add(nivelAlto);
+            log4net.Core.Level nivelMedio = new log4net.Core.Level(40000, "MEDIA");
+            log4net.LogManager.GetRepository().LevelMap.Add(nivelAlto);
+            log4net.Core.Level nivelBajo = new log4net.Core.Level(30000, "BAJA");
+            log4net.LogManager.GetRepository().LevelMap.Add(nivelBajo);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
         }

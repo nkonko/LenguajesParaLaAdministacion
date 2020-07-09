@@ -1,6 +1,6 @@
 ﻿namespace Tatooine.Views
 {
-    using DAL.Utils;
+    using BLL.Utils;
     using Microsoft.SqlServer.Management.Common;
     using Microsoft.SqlServer.Management.Smo;
     using System;
@@ -22,9 +22,9 @@
             }
             try
             {
-                var dbServer = new Server(new ServerConnection(SqlUtils.Connection()));
+                var dbServer = new Server(new ServerConnection(DatabaseConection.GetConnection()));
                 var dbBackUp = new Microsoft.SqlServer.Management.Smo.Backup() { Action = BackupActionType.Database, Database = "Tatooine" };
-                
+
 
                 dbBackUp.Devices.AddDevice(ruta.Trim() + ".bak", DeviceType.File);
                 dbBackUp.Initialize = true;
@@ -42,9 +42,5 @@
         {
             this.SendAlert("Debe selecciona una ruta.");
         }
-
-
-
-
     }
 }

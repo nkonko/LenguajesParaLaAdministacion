@@ -1,21 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BE
+﻿namespace BE
 {
+    using System.Data.SqlTypes;
+
     public class Bitacora
     {
-        public int id_log { get; set; }
-        public int id_usuario { get; set; }
-        public string funcionalidad { get; set; }
-        public string criticidad { get; set; }
-        public string descripcion { get; set; }
-        public DateTime fecha { get; set; }
+        public int IdLog { get; set; }
 
-        //public int dvh { get; set; }
+        public SqlDateTime Fecha { get; set; }
+
+        public string Criticidad { get; set; }
+
+        public string Actividad { get; set; }
+
+        public string InformacionAsociada { get; set; }
+
+        public string Usuario { get; set; }
 
     }
 }
