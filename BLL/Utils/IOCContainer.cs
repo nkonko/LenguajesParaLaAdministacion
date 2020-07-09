@@ -33,6 +33,7 @@
             contBuilder.RegisterType<AccountBusiness>().As<IAccountBusiness>().SingleInstance();
             contBuilder.RegisterType<FamilyBusiness>().As<IFamilyBusiness>().SingleInstance();
             contBuilder.RegisterType<PatentBusiness>().As<IPatentBusiness>().SingleInstance();
+            contBuilder.RegisterType<AltaSolicitudBusiness>().As<IAltaSolicitudBusiness>().SingleInstance();
             contBuilder.RegisterType<DigitVerifier>().As<IDigitVerifier>().SingleInstance();
             contBuilder.RegisterType<RestoreDao>().As<IRestoreDao>().SingleInstance();
             contBuilder.RegisterType<RestoreBusiness>().As<IRestoreBusiness>().SingleInstance();
