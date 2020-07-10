@@ -3,6 +3,7 @@
     using BLL.Interfaces;
     using BLL.Utils;
     using System;
+    using System.IO;
     using System.Windows.Forms;
     using Tatooine.Helpers;
 
@@ -12,44 +13,55 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            ReadBackupFiles();
         }
 
 
         protected void RestoreButton_Click(object sender, EventArgs e)
         {
-            //var ruta = RutaDestinoTextBox.Text;
-            var ruta = "C:\\Program Files\\Microsoft SQL Server\\MSSQL14.SQLEXPRESS\\MSSQL\\Backup\\Backup";
-            if (string.IsNullOrWhiteSpace(ruta))
-            {
-                this.SendAlert("Debe selecciona una ruta.");
-                return;
-            }
+            
+            string _BackupName = lstBackupfiles.SelectedItem.Text.ToString();
+
+            //Mostrar error si el usuario no selecciona ningún bkp.
+
+                try
+                {
+                    var result = restore.ExecuteRestore(_BackupName);
+
+                }
+                catch (Exception ex)
+                {
+                    this.SendAlert("Ocurrio un error");
+                    Response.Write(ex.Message);
+                    return;
+                }
+            
+           
+
+
         }
-        protected void Button1_Click(object sender, EventArgs e)
+
+        private void ReadBackupFiles()
         {
-            string ruta = TextBox1.Text;
-
-            if (string.IsNullOrWhiteSpace(ruta))
-            {
-                this.SendAlert("Debe rellenar la ruta");
-
-                return;
-            }
-
-
             try
             {
-                var result = restore.ExecuteRestore(ruta);
+                if (!Directory.Exists(@"c:\SQLServerBackups\"))
+                {
+                    Directory.CreateDirectory(@"c:\SQLServerBackups\");
+                }
 
+                string[] files = Directory.GetFiles(@"c:\SQLServerBackups\", "*.bak");
+                lstBackupfiles.DataSource = files;
+                lstBackupfiles.DataBind();
+                lstBackupfiles.SelectedIndex = 0;
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                this.SendAlert("Ocurrio un error");
-                Response.Write(ex.Message);
-                return;
+                //lblMessage.Text = exception.Message.ToString();
             }
         }
+
+
 
         protected void FileSystem_Click(object sender, EventArgs e)
         {

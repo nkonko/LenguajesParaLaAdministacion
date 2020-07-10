@@ -10,24 +10,19 @@
             </div>
             <div class="panel-body">
                 <div class="row">
+                    
+                </div>
+                 <div align=center>
+                     <p>Seleccione un backup para realizar la restauración: </p>
+                    <asp:ListBox ID="lstBackupfiles" runat="server" Height="236px" Width="354px"></asp:ListBox>
+                         
+                </div>
+                <div class="row" align=center>
                     <div class="col-md-4 col-sm-offset-4">
-                        <div class="input-bar">
-                            <div class="input-bar-item">
-                                <div class="input-group">
-                                    <asp:TextBox ID="TextBox1" runat="server" class="form-control width100" placeholder="Ruta destino"></asp:TextBox>
-                                    <span class="input-group-btn">
-                                        <asp:Button ID="FileSystemButton" class="btnSubmit btn btn-block btn-info" Text="Examinar" runat="server" OnClick="FileSystem_Click" />
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
+                        <asp:Button ID="RestoreButton" class="btnSubmit btn btn-block btn-success" Text="Restore" runat="server" OnClick="RestoreButton_Click" />
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4 col-sm-offset-4">
-                        <asp:Button ID="RestoreButton" class="btnSubmit btn btn-block btn-success" Text="Aceptar" runat="server" OnClick="RestoreButton_Click" />
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
