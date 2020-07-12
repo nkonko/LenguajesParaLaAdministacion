@@ -18,7 +18,7 @@
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
-            if (integrityBusiness.CheckIntegrity("Userdb"))
+            if (integrityBusiness.CheckIntegrity())
             {
                 var loggedUser = accountBusiness.LogIn(UsernameInput.Text, PasswordInput.Text);
                 Session["name"] = loggedUser.Name;
