@@ -2,8 +2,8 @@
 {
     public interface IIntegrityBusiness
     {
-        bool CheckIntegrity(string entity);
+        bool CheckIntegrity();
 
-        void UpdateIntegrity(string entity);
+        void UpdateIntegrity();
     }
 }

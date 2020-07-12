@@ -1,23 +1,29 @@
 ﻿namespace BLL.Implementation
 {
+    using BE;
     using BLL.Interfaces;
     using DAL.Interfaces;
 
     public class IntegrityBusiness : IIntegrityBusiness
     {
-        private readonly IDigitVerifier digitVerifier;
+        private const string entity = "Userdb";
 
-        public IntegrityBusiness(IDigitVerifier digitVerifier)
+        private readonly IDigitVerifier digitVerifier;
+        private readonly IUserDao userDao;
+
+        public IntegrityBusiness(IDigitVerifier digitVerifier, IUserDao userDao)
         {
             this.digitVerifier = digitVerifier;
+            this.userDao = userDao;
         }
 
-        public bool CheckIntegrity(string entity)
+        public bool CheckIntegrity()
         {
-            return digitVerifier.CheckIntegrity(entity);
+            var users = userDao.Get();
+            return digitVerifier.CheckIntegrity(entity, users);
         }
 
-        public void UpdateIntegrity(string entity)
+        public void UpdateIntegrity()
         {
             digitVerifier.UpdateDVV(entity);
         }

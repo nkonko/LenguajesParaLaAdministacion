@@ -5,9 +5,9 @@
 
     public class RestoreDao : BaseDao, IRestoreDao
     {
-        public bool ExecuteRestore(string ruta)
+        public bool ExecuteRestore(string _BackupName)
         {
-            var query = "use [Master] ALTER DATABASE [Tatooine] SET SINGLE_USER WITH ROLLBACK IMMEDIATE RESTORE DATABASE [Tatooine] FROM DISK= @ruta With REPLACE";
+            var query = "use [Master] ALTER DATABASE [Tatooine] SET SINGLE_USER WITH ROLLBACK IMMEDIATE RESTORE DATABASE [Tatooine] FROM DISK= @_BackupName With REPLACE";
 
             return CatchException(() =>
             {
@@ -15,10 +15,12 @@
                     query,
                     new
                     {
-                        @ruta = ruta
-               
+                        @_BackupName = _BackupName
+
                     });
             });
         }
+
+       
     }
 }

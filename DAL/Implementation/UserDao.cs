@@ -92,7 +92,7 @@
             var encryptedPsw = MD5.ComputeMD5Hash(obj.Password);
             var finalString = obj.Name + encryptedPsw + encryptedUsr + 0;
 
-            var query = "UPDATE Userdb  SET Name = @Name ,Password = @Password , DVH = @Dvh WHERE UserName = @UserName ";
+            var query = "UPDATE Userdb  SET Name = @Name, Password = @Password, DVH = @Dvh WHERE UserName = @UserName ";
 
             return CatchException(() =>
             {
