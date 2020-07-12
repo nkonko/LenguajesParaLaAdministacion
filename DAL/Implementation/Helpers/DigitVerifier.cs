@@ -1,5 +1,6 @@
 ﻿namespace DAL.Implementation.Helpers
 {
+    using BE;
     using DAL.Interfaces;
     using DAL.Utils;
     using System.Collections.Generic;
@@ -7,6 +8,10 @@
 
     public class DigitVerifier : BaseDao, IDigitVerifier
     {
+        public DigitVerifier()
+        {
+        }
+
         public int CalculateDVH(string totalString)
         {
             var convertedValue = 0;
@@ -71,15 +76,39 @@
             return response;
         }
 
-        public bool CheckIntegrity(string entity)
+        public bool CheckIntegrity(string entity, List<User> users)
         {
-            var resultSum = CalculateDVV(entity);
+            var corruptedDvh = CheckDvh(users);
 
-            var dvv = GetDVV(entity);
+            if (!corruptedDvh)
+            {
+                var resultSum = CalculateDVV(entity);
 
-            return resultSum == dvv[entity] ?
-                   true :
-                   false;
+                var dvv = GetDVV(entity);
+
+                return resultSum == dvv[entity] ?
+                       true :
+                       false;
+            }
+
+            return false;
+        }
+
+        private bool CheckDvh(List<User> users)
+        {
+            foreach (var user in users)
+            {
+                var finalString = user.Name + user.Password + user.UserName + user.LoginAttempt;
+
+                var dvh = CalculateDVH(finalString);
+
+                if (dvh != user.DVH)
+                {
+                    return true;
+                }
+            }
+
+            return false;
         }
     }
 }

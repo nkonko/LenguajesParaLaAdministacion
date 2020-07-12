@@ -20,5 +20,7 @@
         public SignInStatus SignInStatus { get; set; }
 
         public int LoginAttempt { get; set; }
+
+        public int DVH { get; set; }
     }
 }

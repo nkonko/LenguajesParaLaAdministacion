@@ -50,7 +50,7 @@
                     <a class="navbar-brand" runat="server" href="~/">T A T O O I N E</a>
                 </div>
                 <div class="navbar-collapse collapse">
-                    <div id="startNav" runat="server">
+                    <div class="startNav" runat="server">
                         <ul class="nav navbar-nav">
                             <li><a runat="server" href="~/Views/UserHome">Inicio</a></li>
                             <li><a runat="server" href="~/Views/About">Acerca de</a></li>
@@ -63,12 +63,18 @@
                             <li><a runat="server" href="~/Views/RequestHistory">Historial de Solicitudes</a></li>
                             <li><a runat="server" href="~/Views/Backup">Backup</a></li>
                             <li><a runat="server" href="~/Views/Restore">Restore</a></li>
+                            <li><a runat="server" href="~/Views/Bitacora">Bitacora</a></li>
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a runat="server" href="~/Views/Index"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
                         </ul>
                     </div>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a runat="server" href="~/Views/SignUp"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                        <li><a runat="server" href="~/Views/Login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-                    </ul>
+                    <div class="startNav" runat="server">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a runat="server" href="~/Views/SignUp"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                            <li><a runat="server" href="~/Views/Login"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
