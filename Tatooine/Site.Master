@@ -36,6 +36,8 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
+                <asp:ScriptReference Path="~/Scripts/sweetalert2.all.min.js" />
+                <asp:ScriptReference Path="~/Scripts/Custom/sweetalertInvocator.js" />
             </Scripts>
         </asp:ScriptManager>
 

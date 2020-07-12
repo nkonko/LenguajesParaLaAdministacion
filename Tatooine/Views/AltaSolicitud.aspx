@@ -1,8 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AltaSolicitud.aspx.cs" Inherits="Tatooine.Views.AltaSolicitud" MasterPageFile="~/Site.Master" %>
+﻿
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AltaSolicitud.aspx.cs" Inherits="Tatooine.Views.AltaSolicitud" MasterPageFile="~/Site.Master" %>
 
 <asp:Content ID="Content" ContentPlaceHolderID="MainContent" runat="server">
     <div class="altaSolicitud">
-
         <div class="panel panel-default">
             <div class="panel-heading">
                 <div class="row-md-6">
@@ -43,10 +43,11 @@
 
                         </div>
                         <asp:Button ID="BotonSolicitud" class="btn btn-block btn-primary" Text="Solicitar" runat="server" OnClick="SubmitSolicitud" />
-
+                        <input type="hidden" id="alertEvent" runat="server" value="false"/>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 </asp:Content>

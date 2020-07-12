@@ -160,6 +160,9 @@
     <Content Include="Css\Style.min.css">
       <DependentUpon>Style.css</DependentUpon>
     </Content>
+    <Content Include="Css\sweetalert2.css" />
+    <Content Include="Scripts\Custom\sweetalertInvocator.js" />
+    <Content Include="Scripts\sweetalert2.all.min.js" />
     <Content Include="Views\Bitacora.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\About.aspx" />
@@ -369,6 +372,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
