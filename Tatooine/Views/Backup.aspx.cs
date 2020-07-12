@@ -8,6 +8,7 @@
     using System.Windows.Forms;
     using Tatooine.Helpers;
     using System.IO;
+    using System.Drawing;
 
     public partial class Backup : System.Web.UI.Page
     {
@@ -18,7 +19,11 @@
             ReadBackupFiles();
         }
 
-        protected void BackupButton_Click(object sender, EventArgs e)
+        protected void ActualizrButton_Click(object sender, EventArgs e)
+        {
+            ReadBackupFiles();
+        }
+            protected void BackupButton_Click(object sender, EventArgs e)
         {
             //var ruta = "C:\\Program Files\\Microsoft SQL Server\\MSSQL14.SQLEXPRESS\\MSSQL\\Backup\\Backup";
 
@@ -35,7 +40,11 @@
                 dbBackUp.Devices.AddDevice(ruta.Trim() +_BackupName, DeviceType.File);
                 dbBackUp.Initialize = true;
                 dbBackUp.SqlBackupAsync(dbServer);
-                
+                Label1.Text = "El backup: " + _BackupName + " fue creado con éxito";
+
+                Label1.ForeColor = Color.Red;
+                ReadBackupFiles();
+
             }
             catch (Exception ex)
             {
@@ -44,7 +53,7 @@
                 return;
             }
 
-            ReadBackupFiles();
+           
         }
 
         private void ReadBackupFiles()
@@ -71,5 +80,7 @@
         {
             this.SendAlert("Debe selecciona una ruta.");
         }
+
+
     }
 }

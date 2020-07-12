@@ -15,7 +15,7 @@ namespace Tatooine.Views
     {
 
         /// <summary>
-        /// form1 control.
+        /// lstBackupfiles control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
@@ -27,9 +27,18 @@ namespace Tatooine.Views
         /// RestoreButton control.
         /// </summary>
         /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button RestoreButton;
+
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
     }
 }
