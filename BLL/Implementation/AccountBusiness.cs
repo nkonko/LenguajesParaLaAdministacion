@@ -32,6 +32,13 @@
 
             var encripted = userBusiness.GetEncriptedUser(userName);
 
+            if (encripted == null)
+            {
+                response.SignInStatus = SignInStatus.Failure;
+
+                return response;
+            }
+
             if (encripted.LoginAttempt <= 5)
             {
                 if (encripted != null && encripted.Password == MD5.ComputeMD5Hash(psw))
