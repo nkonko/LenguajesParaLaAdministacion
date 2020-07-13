@@ -227,6 +227,7 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Lockout.aspx" />
+    <Content Include="Views\Logout.aspx" />
     <Content Include="Views\RequestHistory.aspx" />
     <Content Include="Views\Restore.aspx" />
     <Content Include="Views\SignUp.aspx" />
@@ -313,6 +314,13 @@
     </Compile>
     <Compile Include="Views\Lockout.aspx.designer.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\RequestHistory.aspx.cs">
       <DependentUpon>RequestHistory.aspx</DependentUpon>
