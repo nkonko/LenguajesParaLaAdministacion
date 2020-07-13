@@ -43,7 +43,7 @@
 
                         </div>
                         <asp:Button ID="BotonSolicitud" class="btn btn-block btn-primary" Text="Solicitar" runat="server" OnClick="SubmitSolicitud" />
-                        <input type="hidden" id="alertEvent" runat="server" value="false"/>
+                        <asp:Button ID="alertAction" ClientIDMode="Static" runat="server" OnClick="AlertPageAction" style="display:none;"/>
                     </div>
                 </div>
             </div>

@@ -14,9 +14,10 @@
             page.ClientScript.RegisterStartupScript(page.GetType(), "randomtext", $"showAlert_Informative({parametros})", true);
         }
 
-        public static void ShowInteractiveAlert()
+        public static void ShowInteractiveAlert(this Page page, string icon, string title, string text)
         {
-
+            string parametros = $"'{icon}','{title}','{text}'";
+            page.ClientScript.RegisterStartupScript(page.GetType(), "randomtext", $"showAlert_Interactive({parametros})", true);
         }
 
         public static void SendAlert(this Page page, string message)

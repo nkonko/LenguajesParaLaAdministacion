@@ -14,19 +14,22 @@ function showAlert_Informative(icon, title, text, showButton, timer) {
     })
 }
 
-function showAlert_Interactive(icon, title, text, idinputhidden) {
+function showAlert_Interactive(icon, title, text) {
     Swal.fire({
         icon,
         title,
         text,
-        showConfirmButton: true
-    },
-    function (isConfirm) {
-        if (isConfirm) {
-            _doPostBack('btnLogout', 'OnClick');
+        showConfirmButton: true,
+        allowOutsideClick: false
+    }).then((result) => {
+        if (result.value) {
+            let clickButton = document.getElementById('alertAction');
+            clickButton.click();
         }
-        else {
-            return false;
-        }
-    });
+    })
+}
+
+function testAlert() {
+    let clickButton = document.getElementById('alertAction');
+    clickButton.click();
 }

@@ -32,9 +32,8 @@ namespace Tatooine.Views
                 altaSolicitud_BE.detalle = Request.Form[adicional + "detalle_sol"];
 
                 if (altaSolicitud_BLL.Add(altaSolicitud_BE))
-                {              
-                    PageExtensions.ShowInformativeAlert(this,"success","Éxito","Se ha creado su solicitud",1,3000);
-                    //Response.Redirect("UserHome.aspx");
+                {
+                    PageExtensions.ShowInteractiveAlert(this, "success", "Éxito", "Se ha creado su solicitud");
                 }
                 else
                 {
@@ -46,6 +45,13 @@ namespace Tatooine.Views
                 PageExtensions.ShowInformativeAlert(this, "error", "Error", "Debe completar todos los campos", 1, 3000);
             }
         }
+
+        public void AlertPageAction(object sender, EventArgs e)
+        {
+            Response.Redirect("UserHome.aspx");
+        }
     }
+
+
 }
 

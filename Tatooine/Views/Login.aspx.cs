@@ -40,8 +40,14 @@
             }
             else
             {
-                this.SendAlert("Error en la integridad");
+                PageExtensions.ShowInteractiveAlert(this, "error", "Error", "Error en la integridad de la base de datos. Por favor, comuniquese con el administrador.");
+                //this.SendAlert("Error en la integridad");
             }
+        }
+
+        public void AlertPageAction(object sender, EventArgs e)
+        {
+            integrityBusiness.UpdateIntegrity();
         }
     }
 }
