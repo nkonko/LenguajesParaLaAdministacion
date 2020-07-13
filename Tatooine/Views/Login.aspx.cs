@@ -18,11 +18,22 @@
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
+ 
+           
             if (integrityBusiness.CheckIntegrity())
             {
                 var loggedUser = accountBusiness.LogIn(UsernameInput.Text, PasswordInput.Text);
                 Session["name"] = loggedUser.Name;
+                var isAdmin = false;
+                foreach (var family in loggedUser.Families)
+                {
+                    if (family.Description == "Administrator")
+                    {
+                        isAdmin = true;
+                    }
+                }
 
+                Session["isAdmin"] = isAdmin;
                 switch (loggedUser.SignInStatus)
                 {
                     case SignInStatus.Success:
