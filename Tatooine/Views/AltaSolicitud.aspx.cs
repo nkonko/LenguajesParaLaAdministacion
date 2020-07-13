@@ -33,7 +33,7 @@ namespace Tatooine.Views
 
                 if (altaSolicitud_BLL.Add(altaSolicitud_BE))
                 {
-                    PageExtensions.ShowInteractiveAlert(this, "success", "Éxito", "Se ha creado su solicitud");
+                    PageExtensions.ShowInteractiveAlert(this, "success", "Éxito", "Se ha creado su solicitud", "OK");
                 }
                 else
                 {

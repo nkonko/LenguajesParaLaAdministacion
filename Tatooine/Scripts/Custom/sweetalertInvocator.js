@@ -14,13 +14,14 @@ function showAlert_Informative(icon, title, text, showButton, timer) {
     })
 }
 
-function showAlert_Interactive(icon, title, text) {
+function showAlert_Interactive(icon, title, text, textButton) {
     Swal.fire({
         icon,
         title,
         text,
         showConfirmButton: true,
-        allowOutsideClick: false
+        allowOutsideClick: false,
+        confirmButtonText: textButton
     }).then((result) => {
         if (result.value) {
             let clickButton = document.getElementById('alertAction');

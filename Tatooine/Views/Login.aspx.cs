@@ -18,22 +18,22 @@
 
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
- 
-           
+            var loggedUser = accountBusiness.LogIn(UsernameInput.Text, PasswordInput.Text);
+            Session["name"] = loggedUser.Name;
+            var isAdmin = false;
+            foreach (var family in loggedUser.Families)
+            {
+                if (family.Description == "Administrator")
+                {
+                    isAdmin = true;
+                }
+            }
+
+            Session["isAdmin"] = isAdmin;
+
             if (integrityBusiness.CheckIntegrity())
             {
-                var loggedUser = accountBusiness.LogIn(UsernameInput.Text, PasswordInput.Text);
-                Session["name"] = loggedUser.Name;
-                var isAdmin = false;
-                foreach (var family in loggedUser.Families)
-                {
-                    if (family.Description == "Administrator")
-                    {
-                        isAdmin = true;
-                    }
-                }
-
-                Session["isAdmin"] = isAdmin;
+                
                 switch (loggedUser.SignInStatus)
                 {
                     case SignInStatus.Success:
@@ -51,8 +51,15 @@
             }
             else
             {
-                PageExtensions.ShowInteractiveAlert(this, "error", "Error", "Error en la integridad de la base de datos. Por favor, comuniquese con el administrador.");
-                //this.SendAlert("Error en la integridad");
+                if ((Session["isAdmin"] != null) && ((bool)Session["isAdmin"]))
+                {
+                    PageExtensions.ShowInteractiveAlert(this, "error", "Error", "Error en la integridad de la base de datos. Por favor, recalcule los dígitos.", "Calcular Dígitos");
+                }
+                else
+                {
+                    PageExtensions.ShowInformativeAlert(this, "error", "Error", "Error en la integridad de la base de datos. Por favor, comuniquese con el administrador.",1,1000);
+                }
+
             }
         }
 
