@@ -68,7 +68,7 @@
                             <li><a runat="server" href="~/Views/Bitacora">Bitacora</a></li>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a runat="server" href="~/Views/Index"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                            <li><a runat="server" href="~/Views/Logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
                         </ul>
                     </div>
                     <div class="startNav" runat="server">
