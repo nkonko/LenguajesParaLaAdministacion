@@ -1,18 +1,16 @@
 ﻿namespace Tatooine.Views
 {
     using BLL.Utils;
-    using BLL.Interfaces;
     using Microsoft.SqlServer.Management.Common;
     using Microsoft.SqlServer.Management.Smo;
     using System;
-    using System.Windows.Forms;
-    using Tatooine.Helpers;
     using System.IO;
+    using Tatooine.Helpers;
 
     public partial class Backup : System.Web.UI.Page
     {
 
-       
+
         protected void Page_Load(object sender, EventArgs e)
         {
             ReadBackupFiles();
@@ -29,13 +27,13 @@
                 var dbServer = new Server(new ServerConnection(DatabaseConection.GetConnection()));
                 var dbBackUp = new Microsoft.SqlServer.Management.Smo.Backup() { Action = BackupActionType.Database, Database = "Tatooine" };
 
-                string _BackupName = DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString()+ ".bak";
+                string _BackupName = DateTime.Now.Day.ToString() + "-" + DateTime.Now.Month.ToString() + "-" + DateTime.Now.Year.ToString() + DateTime.Now.Hour.ToString() + DateTime.Now.Minute.ToString() + ".bak";
 
-               
-                dbBackUp.Devices.AddDevice(ruta.Trim() +_BackupName, DeviceType.File);
+
+                dbBackUp.Devices.AddDevice(ruta.Trim() + _BackupName, DeviceType.File);
                 dbBackUp.Initialize = true;
                 dbBackUp.SqlBackupAsync(dbServer);
-                
+
             }
             catch (Exception ex)
             {
