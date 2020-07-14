@@ -28,7 +28,10 @@
                 {
                     var result = restore.ExecuteRestore(_BackupName);
 
-                }
+                Label1.Text = "El backup: " + _BackupName + " fue restaurado con éxito";
+
+               Label1.ForeColor = System.Drawing.Color.Red;
+            }
                 catch (Exception ex)
                 {
                     this.SendAlert("Ocurrio un error");

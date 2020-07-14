@@ -36,6 +36,8 @@
                 <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
                 <asp:ScriptReference Name="WebFormsBundle" />
                 <%--Site Scripts--%>
+                <asp:ScriptReference Path="~/Scripts/sweetalert2.all.min.js" />
+                <asp:ScriptReference Path="~/Scripts/Custom/sweetalertInvocator.js" />
             </Scripts>
         </asp:ScriptManager>
 
@@ -63,10 +65,12 @@
                             <li><a runat="server" href="~/Views/RequestHistory">Historial de Solicitudes</a></li>
                             <li><a runat="server" href="~/Views/Backup">Backup</a></li>
                             <li><a runat="server" href="~/Views/Restore">Restore</a></li>
+                               <% if ((Session["isAdmin"] != null ) && ((bool)Session["isAdmin"])) { %>
                             <li><a runat="server" href="~/Views/Bitacora">Bitacora</a></li>
+                             <% } %>
                         </ul>
                         <ul class="nav navbar-nav navbar-right">
-                            <li><a runat="server" href="~/Views/Index"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                            <li><a runat="server" href="~/Views/Logout"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
                         </ul>
                     </div>
                     <div class="startNav" runat="server">

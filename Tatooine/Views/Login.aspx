@@ -21,6 +21,7 @@
                                 <asp:TextBox runat="server" type="password" class="form-control" id="PasswordInput" placeholder="Password"></asp:TextBox>
                             </div>
                             <asp:Button ID="SubmitButton" class="btn btn-block btn-primary" Text="Iniciar" runat="server" OnClick="SubmitButton_Click" />
+                            <asp:Button ID="alertAction" ClientIDMode="Static" runat="server" OnClick="AlertPageAction" style="display:none;"/>
                         </form>
                     </div>
                 </div>

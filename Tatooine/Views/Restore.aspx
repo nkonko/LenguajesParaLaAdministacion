@@ -22,6 +22,12 @@
                         <asp:Button ID="RestoreButton" class="btnSubmit btn btn-block btn-success" Text="Restore" runat="server" OnClick="RestoreButton_Click" />
                     </div>
                 </div>
+                <div align=center>
+        
+                    <asp:Label ID="Label1" runat="server" Text="" Width="454px"></asp:Label>
+                    
+                 </div>
+                 
 
             </div>
         </div>

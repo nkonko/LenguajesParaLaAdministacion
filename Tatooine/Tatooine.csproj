@@ -160,6 +160,9 @@
     <Content Include="Css\Style.min.css">
       <DependentUpon>Style.css</DependentUpon>
     </Content>
+    <Content Include="Css\sweetalert2.css" />
+    <Content Include="Scripts\Custom\sweetalertInvocator.js" />
+    <Content Include="Scripts\sweetalert2.all.min.js" />
     <Content Include="Views\Bitacora.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\About.aspx" />
@@ -224,6 +227,7 @@
     <Content Include="Site.Master" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Views\Lockout.aspx" />
+    <Content Include="Views\Logout.aspx" />
     <Content Include="Views\RequestHistory.aspx" />
     <Content Include="Views\Restore.aspx" />
     <Content Include="Views\SignUp.aspx" />
@@ -311,6 +315,13 @@
     <Compile Include="Views\Lockout.aspx.designer.cs">
       <DependentUpon>Lockout.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Views\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\RequestHistory.aspx.cs">
       <DependentUpon>RequestHistory.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -369,6 +380,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -406,7 +418,7 @@
     </ItemGroup>
     <MakeDir Directories="$(WebProjectOutputDir)\bin\roslyn" />
     <Copy SourceFiles="@(RoslynFiles)" DestinationFolder="$(WebProjectOutputDir)\bin\roslyn" SkipUnchangedFiles="true" Retries="$(CopyRetryCount)" RetryDelayMilliseconds="$(CopyRetryDelayMilliseconds)" />
-  </Target>
+</Target>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
