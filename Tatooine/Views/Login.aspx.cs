@@ -1,9 +1,11 @@
 ﻿namespace Tatooine.Views
 {
+    using BE;
     using BLL.Interfaces;
     using BLL.Utils;
     using Microsoft.AspNet.Identity.Owin;
     using System;
+    using System.Linq;
     using System.Web.UI;
     using Tatooine.Helpers;
 
@@ -19,24 +21,16 @@
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             var loggedUser = accountBusiness.LogIn(UsernameInput.Text, PasswordInput.Text);
-            Session["name"] = loggedUser.Name;
-            var isAdmin = false;
-            foreach (var family in loggedUser.Families)
-            {
-                if (family.Description == "Administrator")
-                {
-                    isAdmin = true;
-                }
-            }
+            Session["user"] = loggedUser;
 
-            Session["isAdmin"] = isAdmin;
 
             if (integrityBusiness.CheckIntegrity())
             {
-                
+
                 switch (loggedUser.SignInStatus)
                 {
                     case SignInStatus.Success:
+
                         Session["UserName"] = loggedUser.Name;
                         Response.Redirect("/Views/UserHome");
                         break;
@@ -51,16 +45,21 @@
             }
             else
             {
-                if ((Session["isAdmin"] != null) && ((bool)Session["isAdmin"]))
+                if (loggedUser != null && isAdmin(loggedUser))
                 {
                     PageExtensions.ShowInteractiveAlert(this, "error", "Error", "Error en la integridad de la base de datos. Por favor, recalcule los dígitos.", "Calcular Dígitos");
                 }
                 else
                 {
-                    PageExtensions.ShowInformativeAlert(this, "error", "Error", "Error en la integridad de la base de datos. Por favor, comuniquese con el administrador.",1,1000);
+                    PageExtensions.ShowInformativeAlert(this, "error", "Error", "Error en la integridad de la base de datos. Por favor, comuniquese con el administrador.", 1, 1000);
                 }
 
             }
+        }
+
+        private bool isAdmin(User loggedUser)
+        {
+            return loggedUser.Families.Contains(loggedUser.Families.Where(f => f.Description == "Administrator").FirstOrDefault());
         }
 
         public void AlertPageAction(object sender, EventArgs e)

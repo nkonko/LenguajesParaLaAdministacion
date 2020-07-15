@@ -6,6 +6,7 @@
     using System;
     using System.Drawing;
     using System.IO;
+    using Tatooine.Helpers;
 
     public partial class Backup : System.Web.UI.Page
     {
@@ -67,9 +68,9 @@
                 lstBackupfiles.DataBind();
                 lstBackupfiles.SelectedIndex = 0;
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                //lblMessage.Text = exception.Message.ToString();
+                throw;
             }
         }
 
@@ -77,7 +78,6 @@
         {
             this.SendAlert("Debe selecciona una ruta.");
         }
-
 
     }
 }

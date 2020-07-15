@@ -68,6 +68,7 @@
     <Compile Include="AltaSolicitud.cs" />
     <Compile Include="Bitacora.cs" />
     <Compile Include="Family.cs" />
+    <Compile Include="Interfaces\IVerificable.cs" />
     <Compile Include="PatentFamily.cs" />
     <Compile Include="UserFamily.cs" />
     <Compile Include="Interfaces\ICRUD.cs" />

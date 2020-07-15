@@ -15,19 +15,11 @@ namespace Tatooine
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (integrityBusiness.CheckIntegrity())
+            if (!Page.IsPostBack)
             {
-                if (!Page.IsPostBack)
-                {
-                    GreetingsLabel.Text = "Bienvenido a Tatooine";
-                    LoginMessage = "Ingrese a login para iniciar";
-                }
+                GreetingsLabel.Text = "Bienvenido a Tatooine";
+                LoginMessage = "Ingrese a login para iniciar";
             }
-            else
-            {
-                GreetingsLabel.Text = "Integridad dañada contacte al administrador";
-            }
-
         }
     }
 }

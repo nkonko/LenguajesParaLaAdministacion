@@ -19,27 +19,27 @@
 
         protected void RestoreButton_Click(object sender, EventArgs e)
         {
-            
+
             string _BackupName = lstBackupfiles.SelectedItem.Text.ToString();
 
             //Mostrar error si el usuario no selecciona ningún bkp.
 
-                try
-                {
-                    var result = restore.ExecuteRestore(_BackupName);
+            try
+            {
+                var result = restore.ExecuteRestore(_BackupName);
 
                 Label1.Text = "El backup: " + _BackupName + " fue restaurado con éxito";
 
-               Label1.ForeColor = System.Drawing.Color.Red;
+                Label1.ForeColor = System.Drawing.Color.Red;
             }
-                catch (Exception ex)
-                {
-                    this.SendAlert("Ocurrio un error");
-                    Response.Write(ex.Message);
-                    return;
-                }
-            
-           
+            catch (Exception ex)
+            {
+                this.SendAlert("Ocurrio un error");
+                Response.Write(ex.Message);
+                return;
+            }
+
+
 
 
         }
@@ -58,9 +58,9 @@
                 lstBackupfiles.DataBind();
                 lstBackupfiles.SelectedIndex = 0;
             }
-            catch (Exception exception)
+            catch (Exception)
             {
-                //lblMessage.Text = exception.Message.ToString();
+                throw;
             }
         }
 

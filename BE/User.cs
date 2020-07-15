@@ -1,9 +1,10 @@
 ﻿namespace BE
 {
+    using BE.Interfaces;
     using Microsoft.AspNet.Identity.Owin;
     using System.Collections.Generic;
 
-    public class User
+    public class User : IVerificable
     {
         public int Id { get; set; }
 
@@ -22,5 +23,10 @@
         public int LoginAttempt { get; set; }
 
         public int DVH { get; set; }
+
+        public string GetFinalString()
+        {
+            return Name + Password + UserName + LoginAttempt;
+        }
     }
 }

@@ -10,6 +10,7 @@
     {
         private IUserBusiness userBusiness = IOCContainer.Resolve<IUserBusiness>();
         private IIntegrityBusiness integrityBusiness = IOCContainer.Resolve<IIntegrityBusiness>();
+        private IBitacoraBusiness bitacoraBusiness = IOCContainer.Resolve<IBitacoraBusiness>();
 
         ILog log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -25,6 +26,8 @@
                 integrityBusiness.UpdateIntegrity();
                 GlobalContext.Properties["usuario"] = UsernameInput.Text;
                 Log4netExtensions.Baja(log, "Se ha creado un nuevo usuario");
+                bitacoraBusiness.UpdateBitacoraDvh();
+
             }
             this.SendAlert("Usuario creado");
         }

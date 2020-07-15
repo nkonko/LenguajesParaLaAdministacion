@@ -1,8 +1,9 @@
 ﻿namespace BE
 {
+    using BE.Interfaces;
     using System.Data.SqlTypes;
 
-    public class Bitacora
+    public class Bitacora : IVerificable
     {
         public int IdLog { get; set; }
 
@@ -16,5 +17,11 @@
 
         public string Usuario { get; set; }
 
+        public int DVH { get; set; }
+
+        public string GetFinalString()
+        {
+            return Criticidad + Actividad + Usuario;
+        }
     }
 }

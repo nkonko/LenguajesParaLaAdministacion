@@ -12,9 +12,11 @@ namespace Tatooine.Views
             {
                 UserLabel.Text = "Bienvenido ";
 
-                if (Session["name"] != null)
+                var user = (BE.User)Session["user"];
+
+                if (user.Name != null)
                 {
-                    UserLabel.Text += Session["name"].ToString();
+                    UserLabel.Text += user.Name;
                 }
             }
         }

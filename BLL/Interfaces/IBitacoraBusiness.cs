@@ -7,6 +7,9 @@
     public interface IBitacoraBusiness
     {
         List<Bitacora> GetBitacora();
+
         List<Bitacora> GetBitacora(List<string> usuarios, List<string> criticidades, DateTime desde, DateTime hasta);
+
+        void UpdateBitacoraDvh();
     }
 }

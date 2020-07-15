@@ -3,26 +3,41 @@
     using BE;
     using BLL.Interfaces;
     using DAL;
+    using DAL.Interfaces;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public class BitacoraBusiness : IBitacoraBusiness
     {
-        private readonly IBitacoraDao bitacora;
+        private const string bitacoraDb = "Bitacora";
 
-        public BitacoraBusiness(IBitacoraDao bitacora)
+        private readonly IBitacoraDao bitacoraDao;
+        private readonly IDigitVerifier verifier;
+
+        public BitacoraBusiness(IBitacoraDao bitacoraDao, IDigitVerifier verifier)
         {
-            this.bitacora = bitacora;
+            this.bitacoraDao = bitacoraDao;
+            this.verifier = verifier;
         }
 
         public List<Bitacora> GetBitacora(List<string> usuarios, List<string> criticidades, DateTime desde, DateTime hasta)
         {
-            return bitacora.GetBitacora(usuarios, criticidades, desde, hasta);
+            return bitacoraDao.GetBitacora(usuarios, criticidades, desde, hasta);
         }
 
         public List<Bitacora> GetBitacora()
         {
-            return bitacora.GetBitacora();
+            return bitacoraDao.GetBitacora();
+        }
+
+        public void UpdateBitacoraDvh()
+        {
+            var bitacora = bitacoraDao.GetBitacora().LastOrDefault();
+
+            var dvh = verifier.CalculateDVH(bitacora.GetFinalString());
+
+            verifier.UpdateDvh(bitacoraDb, bitacora.IdLog, dvh);
         }
     }
 }

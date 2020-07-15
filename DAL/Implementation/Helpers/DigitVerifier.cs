@@ -1,6 +1,5 @@
 ﻿namespace DAL.Implementation.Helpers
 {
-    using BE;
     using DAL.Interfaces;
     using DAL.Utils;
     using System.Collections.Generic;
@@ -8,10 +7,6 @@
 
     public class DigitVerifier : BaseDao, IDigitVerifier
     {
-        public DigitVerifier()
-        {
-        }
-
         public int CalculateDVH(string totalString)
         {
             var convertedValue = 0;
@@ -26,6 +21,27 @@
 
             result = list.Sum();
             return result;
+        }
+
+        public void UpdateDvh(string entity, int id, int dvh)
+        {
+            var queryString = string.Empty;
+
+            if (entity == "Bitacora")
+            {
+                queryString = $"UPDATE Bitacora SET DVH = {dvh} WHERE IdLog = {id}";
+            }
+
+            if (entity == "UserDb")
+            {
+                queryString = $"UPDATE Userdb SET DVH = {dvh} WHERE Id = {id}";
+            }
+
+            CatchException(() =>
+            {
+                Exec(queryString);
+            });
+
         }
 
         public int CalculateDVV(string entity)
@@ -76,9 +92,9 @@
             return response;
         }
 
-        public bool CheckIntegrity(string entity, List<User> users)
+        public bool CheckIntegrity(string entity, string finalString, int entityDVH)
         {
-            var corruptedDvh = CheckDvh(users);
+            var corruptedDvh = CheckDvh(finalString, entityDVH);
 
             if (!corruptedDvh)
             {
@@ -94,18 +110,13 @@
             return false;
         }
 
-        private bool CheckDvh(List<User> users)
+        private bool CheckDvh(string finalString, int entityDVH)
         {
-            foreach (var user in users)
+            var dvh = CalculateDVH(finalString);
+
+            if (dvh != entityDVH)
             {
-                var finalString = user.Name + user.Password + user.UserName + user.LoginAttempt;
-
-                var dvh = CalculateDVH(finalString);
-
-                if (dvh != user.DVH)
-                {
-                    return true;
-                }
+                return true;
             }
 
             return false;
