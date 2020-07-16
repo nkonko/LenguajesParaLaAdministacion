@@ -6,6 +6,7 @@
     using System;
     using System.Drawing;
     using System.IO;
+    using System.Linq;
     using Tatooine.Helpers;
 
     public partial class Backup : System.Web.UI.Page
@@ -14,7 +15,24 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ReadBackupFiles();
+            var user = (BE.User)Session["user"];
+
+            if (user != null)
+            {
+                var isAdmin = user.Families.Any(f => f.Description == "Administrador");
+
+                if (!isAdmin)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+
+                ReadBackupFiles();
+            }
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
+
         }
 
         protected void ActualizrButton_Click(object sender, EventArgs e)
@@ -64,15 +82,19 @@
                 }
 
                 string[] files = Directory.GetFiles(@"c:\SQLServerBackups\", "*.bak");
-                if ( files.Length > 0 )
+
+                if (files.Length > 0)
                 {
                     lstBackupfiles.DataSource = files;
                     lstBackupfiles.DataBind();
                     lstBackupfiles.SelectedIndex = 0;
                 }
-                else { lstBackupfiles.DataSource = null; }
-                
-                
+                else
+                {
+                    lstBackupfiles.DataSource = null;
+                }
+
+
             }
             catch (Exception)
             {

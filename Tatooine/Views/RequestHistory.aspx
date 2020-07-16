@@ -20,12 +20,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <% foreach (var request in dummy)
+                            <% foreach (var request in Solicitudes)
                                 { %>
                             <tr>
                                 <th scope="row"><%=request.id %></th>
                                 <td><%=request.producto %></td>
-                                <td><%=request.fecha %></td>
+                                <td><%=request.fecha_compra.ToString() %></td>
                                 <td><%=request.estado %></td>
                             </tr>
                             <% } %>

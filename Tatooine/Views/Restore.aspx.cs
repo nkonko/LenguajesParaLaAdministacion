@@ -4,6 +4,7 @@
     using BLL.Utils;
     using System;
     using System.IO;
+    using System.Linq;
     using System.Windows.Forms;
     using Tatooine.Helpers;
 
@@ -13,20 +14,34 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack)
+            var user = (BE.User)Session["user"];
+
+            if (user != null)
             {
-                ReadBackupFiles();
+                var isAdmin = user.Families.Any(f => f.Description == "Administrador");
+
+                if (!isAdmin)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+
+                if (!Page.IsPostBack)
+                {
+                    ReadBackupFiles();
+                }
+
             }
-
-
-               
+            else
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         protected void RestoreButton_Click(object sender, EventArgs e)
         {
-                       
-           string _BackupName = lstBackupfiles.SelectedItem.Text.ToString();
-                  
+
+            string _BackupName = lstBackupfiles.SelectedItem.Text.ToString();
+
             //Mostrar error si el usuario no selecciona ningún bkp.
 
             try
@@ -44,7 +59,7 @@
                 return;
             }
 
-            
+
 
 
         }
@@ -61,7 +76,7 @@
                 string[] files = Directory.GetFiles(@"c:\SQLServerBackups\", "*.bak");
                 lstBackupfiles.DataSource = files;
                 lstBackupfiles.DataBind();
-               lstBackupfiles.SelectedIndex = 0;
+                lstBackupfiles.SelectedIndex = 0;
 
 
             }

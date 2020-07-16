@@ -3,9 +3,6 @@ using DAL.Interfaces;
 using DAL.Utils;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DAL.Implementation
 {
@@ -38,7 +35,13 @@ namespace DAL.Implementation
 
         public List<AltaSolicitud> Get()
         {
-            throw new NotImplementedException();
+            var query = "SELECT * FROM Solicitud";
+
+            return CatchException(() =>
+            {
+                return Exec<AltaSolicitud>(
+                    query);
+            });
         }
 
         public bool Update(AltaSolicitud obj)
