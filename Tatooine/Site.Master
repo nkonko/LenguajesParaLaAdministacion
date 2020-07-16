@@ -49,7 +49,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" runat="server" href="~/">T A T O O I N E</a>
+                    <a class="navbar-brand" runat="server" href="~/">R E P A R A R APP</a>
                 </div>
                 <div class="navbar-collapse collapse">
                     <div runat="server">

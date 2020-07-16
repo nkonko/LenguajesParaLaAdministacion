@@ -8,8 +8,6 @@
 
     public class AltaSolicitudBusiness : IAltaSolicitudBusiness
     {
-        //DAL.Implementation.AltaSolicitudDao sol_DAL = new DAL.Implementation.AltaSolicitudDao();
-
         private readonly IAltaSolicitudDao altaSolicitudDao;
 
         public AltaSolicitudBusiness(IAltaSolicitudDao solDao)
@@ -28,7 +26,7 @@
 
         public List<AltaSolicitud> Get()
         {
-            throw new NotImplementedException();
+            return altaSolicitudDao.Get();
         }
 
         public bool Update(AltaSolicitud obj)

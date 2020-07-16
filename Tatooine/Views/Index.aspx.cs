@@ -17,7 +17,7 @@ namespace Tatooine
         {
             if (!Page.IsPostBack)
             {
-                GreetingsLabel.Text = "Bienvenido a Tatooine";
+                GreetingsLabel.Text = "Bienvenido a Reparar APP";
                 LoginMessage = "Ingrese a login para iniciar";
             }
         }
