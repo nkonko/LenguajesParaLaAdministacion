@@ -5,6 +5,7 @@
     using BLL.Utils;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
 
     public partial class Bitacora : System.Web.UI.Page
     {
@@ -12,11 +13,23 @@
         public List<BE.Bitacora> filas;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if ((Session["isAdmin"] == null ) || (!(bool)Session["isAdmin"])) {
+            var user = (User)Session["user"];
+
+            if (user != null)
+            {
+                var isAdmin = user.Families.Any(f => f.Description == "Administrador");
+
+                if (!isAdmin)
+                {
+                    Response.Redirect("Login.aspx");
+                }
+            }
+            else
+            {
                 Response.Redirect("Login.aspx");
             }
-            
+
             filas = bitacora.GetBitacora();
-        } 
+        }
     }
 }

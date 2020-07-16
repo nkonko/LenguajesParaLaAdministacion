@@ -93,7 +93,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Utils\DatabaseConection.cs" />
     <Compile Include="Utils\IOCContainer.cs" />
+    <Compile Include="Interfaces\ITablesBusines.cs" />
     <Compile Include="Utils\Log4netExtensions.cs" />
+    <Compile Include="Utils\TablesBussines.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BE\BE.csproj">
