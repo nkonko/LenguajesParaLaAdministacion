@@ -1,8 +1,6 @@
 ﻿using BLL.Interfaces;
 using BLL.Utils;
 using System;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 using Tatooine.Helpers;
 
 namespace Tatooine.Views
@@ -15,7 +13,12 @@ namespace Tatooine.Views
         BE.AltaSolicitud altaSolicitud_BE = new BE.AltaSolicitud();
         protected void Page_Load(object sender, EventArgs e)
         {
+            var user = (BE.User)Session["user"];
 
+            if (user == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
 
         protected void SubmitSolicitud(object sender, EventArgs e)
@@ -30,6 +33,7 @@ namespace Tatooine.Views
                 altaSolicitud_BE.color = Request.Form[adicional + "color_sol"];
                 altaSolicitud_BE.fecha_compra = Convert.ToDateTime(Request.Form[adicional + "fecha_sol"]);
                 altaSolicitud_BE.detalle = Request.Form[adicional + "detalle_sol"];
+                altaSolicitud_BE.estado = Request.Form[adicional + "estado_sol"];
 
                 if (altaSolicitud_BLL.Add(altaSolicitud_BE))
                 {

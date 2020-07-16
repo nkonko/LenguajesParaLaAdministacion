@@ -14,6 +14,14 @@ namespace Tatooine.Views
 
         protected void Page_Load(object sender, EventArgs e)
         {
+
+            var user = (BE.User)Session["user"];
+
+            if (user == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+
             Solicitudes = accountBusiness.Get();
         }
     }

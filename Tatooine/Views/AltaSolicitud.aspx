@@ -26,11 +26,16 @@
                             <asp:TextBox runat="server" type="text" class="form-control" ID="modelo_sol" placeholder="Modelo del Producto"></asp:TextBox>
                         </div>
                         <div class="form-group">
+                            <label for="modelo_sol">Estado:</label>
+                            <asp:TextBox runat="server" type="text" class="form-control" ID="estado_sol" placeholder="Estado"></asp:TextBox>
+                        </div>
+                        <div class="form-group">
                             <label for="color_sol">Color:</label>
                             <asp:DropDownList runat="server" type="select" class="form-control" ID="color_sol">
                                 <asp:ListItem Text="Seleccionar" Value=""></asp:ListItem>
                                 <asp:ListItem Text="Rojo" Value="Rojo"></asp:ListItem>
                                 <asp:ListItem Text="Negro" Value="Negro"></asp:ListItem>
+                                <asp:ListItem Text="Plata" Value="Plata"></asp:ListItem>
                             </asp:DropDownList>
                         </div>
                         <div class="form-group">
@@ -39,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label for="detalle_sol">Detalle:</label>
-                            <asp:TextBox id="detalle_sol" class="form-control" TextMode="multiline" Columns="50" Rows="5" runat="server" placeholder="Detalle del defecto..." ReadOnly="true" />
+                            <asp:TextBox id="detalle_sol" class="form-control" TextMode="multiline" Columns="50" Rows="5" runat="server" placeholder="Detalle del defecto..." />
 
                         </div>
                         <asp:Button ID="BotonSolicitud" class="btn btn-block btn-primary" Text="Solicitar" runat="server" OnClick="SubmitSolicitud" />

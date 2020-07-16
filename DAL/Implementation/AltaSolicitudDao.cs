@@ -10,7 +10,7 @@ namespace DAL.Implementation
     {
         public bool Add(AltaSolicitud obj)
         {
-            var query = "INSERT INTO Solicitud VALUES (@producto, @marca, @modelo, @color, @fecha, @detalle)";
+            var query = "INSERT INTO Solicitud VALUES (@producto, @marca, @modelo, @color, @fecha, @detalle, @estado)";
             //convert(datetime, '" + obj.fecha_compra.ToString("yyyy-MM-dd HH:mm:ss") + "',101),'" 
             return CatchException(() =>
             {
@@ -22,8 +22,9 @@ namespace DAL.Implementation
                         @marca = obj.marca,
                         @modelo = obj.modelo,
                         @color = obj.color,
-                        @fecha = obj.fecha_compra.ToString(),
-                        @detalle = obj.detalle
+                        @fecha = obj.fecha_compra.ToString("yyyy/MM/dd"),
+                        @detalle = obj.detalle,
+                        @estado = obj.estado
                     });
             });
         }

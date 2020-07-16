@@ -66,7 +66,11 @@
                     </div>
                     <div runat="server">
                         <ul class="nav navbar-nav">
+                            <% if (user != null)
+                                    { %>
                             <li><a runat="server" href="~/Views/RequestHistory">Historial de Solicitudes</a></li>
+                            <li><a runat="server" href="~/Views/AltaSolicitud">Alta de Solicitudes</a></li>
+                             <%}%>
                             <% if (user != null && isAdmin(user))
                                 { %>
                             <li><a runat="server" href="~/Views/Backup">Backup</a></li>
