@@ -21,7 +21,7 @@ namespace Tatooine
         {
             foreach (var family in user.Families)
             {
-                if (family.Description == "Admin")
+                if (family.Description == "Administrador")
                 {
                     return true;
                 }

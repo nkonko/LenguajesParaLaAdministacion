@@ -5,6 +5,7 @@
     using BLL.Utils;
     using Microsoft.AspNet.Identity.Owin;
     using System;
+    using System.Collections.Generic;
     using System.Linq;
     using System.Web.UI;
     using Tatooine.Helpers;
@@ -21,16 +22,18 @@
         protected void SubmitButton_Click(object sender, EventArgs e)
         {
             var loggedUser = accountBusiness.LogIn(UsernameInput.Text, PasswordInput.Text);
-            Session["user"] = loggedUser;
 
+            var ids = new Dictionary<string, int>();
+            var integrity = integrityBusiness.CheckIntegrity(ids);
 
-            if (integrityBusiness.CheckIntegrity())
+            if (integrity && ids.Count == 0)
             {
-
+               
                 switch (loggedUser.SignInStatus)
                 {
                     case SignInStatus.Success:
 
+                        Session["user"] = loggedUser;
                         Session["UserName"] = loggedUser.Name;
                         Response.Redirect("/Views/UserHome");
                         break;
@@ -65,6 +68,7 @@
         public void AlertPageAction(object sender, EventArgs e)
         {
             integrityBusiness.UpdateIntegrity();
+            PageExtensions.ShowInformativeAlert(this, "success", "Exito", "Se han recalculado los digitos exitosamente", 1, 1000);
         }
     }
 }
