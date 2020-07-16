@@ -64,9 +64,15 @@
                 }
 
                 string[] files = Directory.GetFiles(@"c:\SQLServerBackups\", "*.bak");
-                lstBackupfiles.DataSource = files;
-                lstBackupfiles.DataBind();
-                lstBackupfiles.SelectedIndex = 0;
+                if ( files.Length > 0 )
+                {
+                    lstBackupfiles.DataSource = files;
+                    lstBackupfiles.DataBind();
+                    lstBackupfiles.SelectedIndex = 0;
+                }
+                else { lstBackupfiles.DataSource = null; }
+                
+                
             }
             catch (Exception)
             {

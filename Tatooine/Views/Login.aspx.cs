@@ -59,6 +59,8 @@
                     if (loggedUser != null && isAdmin(loggedUser))
                     {
                         PageExtensions.ShowInteractiveAlert(this, "error", "Error", "Error en la integridad de la base de datos. Por favor, recalcule los dígitos.", "Calcular Dígitos");
+              
+                       
                     }
                     else
                     {

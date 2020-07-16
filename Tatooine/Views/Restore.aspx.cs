@@ -13,15 +13,20 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            ReadBackupFiles();
-        }
+            if (!Page.IsPostBack)
+            {
+                ReadBackupFiles();
+            }
 
+
+               
+        }
 
         protected void RestoreButton_Click(object sender, EventArgs e)
         {
-
-            string _BackupName = lstBackupfiles.SelectedItem.Text.ToString();
-
+                       
+           string _BackupName = lstBackupfiles.SelectedItem.Text.ToString();
+                  
             //Mostrar error si el usuario no selecciona ningún bkp.
 
             try
@@ -39,7 +44,7 @@
                 return;
             }
 
-
+            
 
 
         }
@@ -56,7 +61,9 @@
                 string[] files = Directory.GetFiles(@"c:\SQLServerBackups\", "*.bak");
                 lstBackupfiles.DataSource = files;
                 lstBackupfiles.DataBind();
-                lstBackupfiles.SelectedIndex = 0;
+               lstBackupfiles.SelectedIndex = 0;
+
+
             }
             catch (Exception)
             {
