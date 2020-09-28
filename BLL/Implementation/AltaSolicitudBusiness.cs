@@ -12,11 +12,11 @@
 
         public AltaSolicitudBusiness(IAltaSolicitudDao solDao)
         {
-            this.altaSolicitudDao = solDao;
+            altaSolicitudDao = solDao;
         }
         public bool Add(AltaSolicitud obj)
         {
-            return this.altaSolicitudDao.Add(obj);
+            return altaSolicitudDao.Add(obj);
         }
 
         public bool Delete(AltaSolicitud obj)
