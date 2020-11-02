@@ -14,7 +14,7 @@
     {
         private IAccountBusiness accountBusiness = IOCContainer.Resolve<IAccountBusiness>();
         private IIntegrityBusiness integrityBusiness = IOCContainer.Resolve<IIntegrityBusiness>();
-        private ITablesBusines tablesBusines = IOCContainer.Resolve<ITablesBusines>();
+        private ITablesBusiness tablesBusines = IOCContainer.Resolve<ITablesBusiness>();
 
         protected void Page_Load(object sender, EventArgs e)
         {

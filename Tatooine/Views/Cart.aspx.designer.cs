@@ -11,7 +11,7 @@ namespace Tatooine.Views
 {
 
 
-    public partial class RequestHistory
+    public partial class Cart
     {
     }
 }

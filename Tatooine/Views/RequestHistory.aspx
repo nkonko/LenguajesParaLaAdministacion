@@ -23,7 +23,7 @@
                             <% foreach (var request in Solicitudes)
                                 { %>
                             <tr>
-                                <th scope="row"><%=request.id %></th>
+                                <th scope="row"><%=request.Id %></th>
                                 <td><%=request.producto %></td>
                                 <td><%=request.fecha_compra.ToString() %></td>
                                 <td><%=request.estado %></td>
