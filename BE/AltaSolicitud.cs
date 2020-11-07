@@ -1,7 +1,7 @@
-﻿using System;
-
-namespace BE
+﻿namespace BE
 {
+    using System;
+
     public class AltaSolicitud
     {
         public int Id { get; set; }

@@ -24,7 +24,7 @@
 
             var product = productBusiness.GetProductById(productId);
 
-            Cart.products.Add(new ProductsInCart() { Product = product, Quantity = quantity, IdProduct = productId });
+            Cart.Products.Add(new ProductsInCart() { Product = product, Quantity = quantity, IdProduct = productId });
         }
 
         public Cart GetCart()
@@ -34,7 +34,7 @@
 
         public Cart CleanTheCart()
         {
-            Cart = new Cart() { products = new List<ProductsInCart>() };
+            Cart = new Cart() { Products = new List<ProductsInCart>() };
             return Cart;
         }
     }

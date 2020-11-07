@@ -5,16 +5,16 @@
 
     public class TablesBusiness : ITablesBusiness
     {
-        private List<string> tables { get; set; }
+        private List<string> Tables { get; set; }
 
         public List<string> GetDefaultTables()
         {
-            return tables;
+            return Tables;
         }
 
         public TablesBusiness()
         {
-            tables = new List<string>()
+            Tables = new List<string>()
             {
                 "Userdb",
                 "Family",

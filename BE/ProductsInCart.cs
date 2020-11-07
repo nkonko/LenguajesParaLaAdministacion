@@ -8,7 +8,6 @@
 
         public Product Product { get; set; }
 
-
         public decimal GetTotal()
         {
             return Product.Price * Quantity;

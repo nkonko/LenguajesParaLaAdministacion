@@ -11,7 +11,7 @@
     {
         private ICartBusiness cartBusiness = IOCContainer.Resolve<ICartBusiness>();
 
-        public BE.Cart cart { get; set; }
+        public BE.Cart Becart { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,34 +21,33 @@
             {
                 Response.Redirect("Login.aspx");
             }
-
         }
 
         protected void Page_Init(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
-                cart = cartBusiness.GetCart();
+                Becart = cartBusiness.GetCart();
 
-                if (cart == null)
+                if (Becart == null)
                 {
-                    cart = new BE.Cart() { products = new List<ProductsInCart>() };
+                    Becart = new BE.Cart() { Products = new List<ProductsInCart>() };
                 }
             }
         }
 
-        protected void finish(object sender, EventArgs e)
+        protected void Finish(object sender, EventArgs e)
         {
-            cart = cartBusiness.GetCart();
+            Becart = cartBusiness.GetCart();
 
-            if (cart != null && cart.products.Count > 0)
+            if (Becart != null && Becart.Products.Count > 0)
             {
-                cart = cartBusiness.CleanTheCart();
+                Becart = cartBusiness.CleanTheCart();
                 PageExtensions.ShowInformativeAlert(this, "success", "Exito", "Tu pedido fue registrado con exito", 1, 1000);
             }
             else
             {
-                cart = cartBusiness.CleanTheCart();
+                Becart = cartBusiness.CleanTheCart();
                 PageExtensions.ShowInformativeAlert(this, "error", "No hay productos", "Agrega algo al carrito", 1, 1000);
             }
         }

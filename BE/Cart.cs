@@ -4,13 +4,13 @@
 
     public class Cart
     {
-        public List<ProductsInCart> products { get; set; } = new List<ProductsInCart>();
+        public List<ProductsInCart> Products { get; set; } = new List<ProductsInCart>();
 
         public decimal GetTotalOfCart()
         {
             var total = 0.0m;
 
-            foreach (var product in products)
+            foreach (var product in Products)
             {
                 total += product.GetTotal();
             }
