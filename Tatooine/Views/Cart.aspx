@@ -18,14 +18,18 @@
                     <tr>
                         <td><%=product.Product.Description %></td>
                         <td><%=product.Quantity %></td>
-                        <td><%=product.Product.Price %></td>
+                        <td>$ <%=product.Product.Price %></td>
                         <td></td>
                     </tr>
                      <% } %>
                     <tr>
-                        <td>Total:</td>
+                        <td>Total:$ <%=cart.GetTotalOfCart() %> </td>
                     </tr>
                 </table>
+            </div>
+
+            <div class="col-md-4">
+                <asp:Button Text="Terminar compra" runat="server" type="button" class="btn btn-success" OnClick="finish"></asp:Button>
             </div>
         </div>
     </div>
