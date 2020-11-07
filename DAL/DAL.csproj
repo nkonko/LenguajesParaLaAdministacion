@@ -53,6 +53,8 @@
   <ItemGroup>
     <Compile Include="Implementation\AltaSolicitudDao.cs" />
     <Compile Include="Implementation\BitacoraDao.cs" />
+    <Compile Include="Interfaces\IProductDao.cs" />
+    <Compile Include="Implementation\ProductDao.cs" />
     <Compile Include="Interfaces\IBitacoraDao.cs" />
     <Compile Include="Implementation\FamilyDao.cs" />
     <Compile Include="Implementation\Helpers\DigitVerifier.cs" />

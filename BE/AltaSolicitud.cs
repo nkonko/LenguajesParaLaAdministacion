@@ -4,6 +4,7 @@ namespace BE
 {
     public class AltaSolicitud
     {
+        public int Id { get; set; }
         public string producto { get; set; }
 
         public string marca { get; set; }

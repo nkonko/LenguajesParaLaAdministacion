@@ -2,7 +2,7 @@
 {
     using System.Collections.Generic;
 
-    public interface ITablesBusines
+    public interface ITablesBusiness
     {
         List<string> GetDefaultTables();
     }

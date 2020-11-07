@@ -41,7 +41,10 @@
             contBuilder.RegisterType<IntegrityBusiness>().As<IIntegrityBusiness>().SingleInstance();
             contBuilder.RegisterType<BitacoraDao>().As<IBitacoraDao>().SingleInstance();
             contBuilder.RegisterType<BitacoraBusiness>().As<IBitacoraBusiness>().SingleInstance();
-            contBuilder.RegisterType<TablesBusines>().As<ITablesBusines>().SingleInstance();
+            contBuilder.RegisterType<TablesBusiness>().As<ITablesBusiness>().SingleInstance();
+            contBuilder.RegisterType<ProductBusiness>().As<IProductBusiness>().SingleInstance();
+            contBuilder.RegisterType<ProductDao>().As<IProductDao>().SingleInstance();
+            contBuilder.RegisterType<CartBusiness>().As<ICartBusiness>().SingleInstance();
             return contBuilder.Build();
         }
     }

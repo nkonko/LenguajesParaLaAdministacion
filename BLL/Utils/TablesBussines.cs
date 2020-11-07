@@ -3,7 +3,7 @@
     using BLL.Interfaces;
     using System.Collections.Generic;
 
-    public class TablesBusines : ITablesBusines
+    public class TablesBusiness : ITablesBusiness
     {
         private List<string> tables { get; set; }
 
@@ -12,7 +12,7 @@
             return tables;
         }
 
-        public TablesBusines()
+        public TablesBusiness()
         {
             tables = new List<string>()
             {
