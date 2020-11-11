@@ -16,8 +16,9 @@ namespace Tatooine.Views
         {
             var reader = GetReader();
             var builder = new StringBuilder();
+            var insertTr = false;
 
-            builder.Append(@"<table class=\""table table-striped\""><thead><tr><th scope=\""col\"">Nombre</th><th scope=\""col\"">Apellido</th><th scope=\""col\"">Edad</th><th scope=\""col\"">Cargo</th></tr></thead><tbody><tr>");
+            builder.Append(@"<table class=""table table-striped""><thead><tr><th scope=""col"">Nombre</th><th scope=""col"">Apellido</th><th scope=""col"">Edad</th><th scope=""col"">Cargo</th></tr></thead><tbody><tr>");
 
             while (reader.Read())
             {
@@ -29,7 +30,6 @@ namespace Tatooine.Views
                         {
                             builder.Append("<tr>");
                             builder.Append("<td>");
-
                         }
 
                         if (reader.Name == "APELLIDO" || reader.Name == "EDAD")
@@ -40,13 +40,20 @@ namespace Tatooine.Views
                         if (reader.Name == "CARGO")
                         {
                             builder.Append("<td>");
-                            builder.Append("</tr>");
+                            insertTr = true;
                         }
 
                         break;
                     case XmlNodeType.Text:
                         builder.Append(reader.Value);
                         builder.Append("</td>");
+
+                        if (insertTr)
+                        {
+                            builder.Append("</tr>");
+                            insertTr = false;
+                        }
+
                         break;
                 }
             }
@@ -58,7 +65,9 @@ namespace Tatooine.Views
 
         private XmlReader GetReader()
         {
-            return XmlReader.Create(@"C:\Users\nicoa\Documents\Universidad\LPPA\LenguajesParaLaAdministacion\Tatooine\Views\empleados.xml");
+            var path = AppDomain.CurrentDomain.BaseDirectory;
+
+            return XmlReader.Create($"{path}Views\\empleados.xml");
         }
 
     }

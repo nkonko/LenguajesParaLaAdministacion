@@ -5,7 +5,7 @@
     <div class="row">
         <h1>Empleados</h1>
         <br />
-        <div id="employees" runat="server">
+        <div class="col-md-8" id="employees" runat="server">
         </div>
     </div>
 </asp:Content>

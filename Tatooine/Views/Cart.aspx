@@ -13,7 +13,7 @@
                         <th>Cantidad</th>
                         <th>Precio</th>
                     </tr>
-                    <% foreach (var product in cart.products)
+                    <% foreach (var product in Becart.Products)
                                 { %>
                     <tr>
                         <td><%=product.Product.Description %></td>
@@ -23,13 +23,13 @@
                     </tr>
                      <% } %>
                     <tr>
-                        <td>Total:$ <%=cart.GetTotalOfCart() %> </td>
+                        <td>Total:$ <%=Becart.GetTotalOfCart() %> </td>
                     </tr>
                 </table>
             </div>
 
             <div class="col-md-4">
-                <asp:Button Text="Terminar compra" runat="server" type="button" class="btn btn-success" OnClick="finish"></asp:Button>
+                <asp:Button Text="Terminar compra" runat="server" type="button" class="btn btn-success" OnClick="Finish"></asp:Button>
             </div>
         </div>
     </div>
