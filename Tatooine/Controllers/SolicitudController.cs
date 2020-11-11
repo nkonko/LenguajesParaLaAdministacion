@@ -14,9 +14,9 @@
         [HttpGet]
         public IEnumerable<AltaSolicitud> Get()
         {
-            var algo = altaSolicitudBusiness.Get();
+            var solicitudes = altaSolicitudBusiness.Get();
 
-            return algo;
+            return solicitudes;
         }
 
         //POST api/<controller>/

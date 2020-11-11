@@ -16,22 +16,17 @@
 
         public bool Add(Product obj)
         {
-            throw new System.NotImplementedException();
+            return productDao.Add(obj);
         }
 
         public bool Delete(Product obj)
         {
-            throw new System.NotImplementedException();
+            return productDao.Delete(obj);
         }
 
         public List<Product> Get()
         {
             return productDao.Get();
-        }
-
-        public decimal GetPrice(int quantity)
-        {
-            return productDao.GetPrice(quantity);
         }
 
         public Product GetProductById(int productId)
@@ -41,7 +36,7 @@
 
         public bool Update(Product obj)
         {
-            throw new System.NotImplementedException();
+            return productDao.Update(obj);
         }
     }
 }

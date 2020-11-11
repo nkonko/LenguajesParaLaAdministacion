@@ -10,12 +10,34 @@
     {
         public bool Add(Product obj)
         {
-            throw new System.NotImplementedException();
+            var query = $"INSERT INTO Product VALUES(@Description, @Price)";
+
+            return CatchException(() =>
+            {
+                return Exec(
+                    query,
+                    new
+                    {
+                        @Description = obj.Description,
+                        @Price = obj.Price
+                    });
+            });
         }
 
         public bool Delete(Product obj)
         {
-            throw new System.NotImplementedException();
+            var query = "DELETE FROM Product WHERE Id = @Id";
+
+            return CatchException(() =>
+            {
+                return Exec(
+                    query,
+                    new
+                    {
+                        @Id = obj.Id
+                    });
+            });
+
         }
 
         public List<Product> Get()
@@ -37,12 +59,19 @@
 
         public bool Update(Product obj)
         {
-            throw new System.NotImplementedException();
-        }
+            var query = "UPDATE Product SET Description = @Description, Price = @Price WHERE Id = @Id ";
 
-        public decimal GetPrice(int quantity)
-        {
-            return 0;
+            return CatchException(() =>
+            {
+                return Exec(
+                    query,
+                    new
+                    {
+                        @Description = obj.Description,
+                        @Price = obj.Price,
+                        @Id = obj.Id
+                    });
+            });
         }
     }
 }

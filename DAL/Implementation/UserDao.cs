@@ -46,7 +46,24 @@
         {
             var encryptedUsr = DES.Encrypt(obj.UserName, Key, Iv);
 
-            var query = "SELECT * FROM Userdb WHERE UserName = @UserName";
+            var query = "DELETE FROM Userdb WHERE UserName = @UserName";
+
+            return CatchException(() =>
+            {
+                return Exec(
+                    query,
+                    new
+                    {
+                        @UserName = encryptedUsr
+                    });
+            });
+        }
+
+        public bool LogicalDelete(User obj)
+        {
+            var encryptedUsr = DES.Encrypt(obj.UserName, Key, Iv);
+
+            var query = "UPDATE Userdb  SET LoginAttempt = 3 WHERE UserName = @UserName "; ;
 
             return CatchException(() =>
             {

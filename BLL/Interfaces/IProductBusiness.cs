@@ -4,8 +4,6 @@
 
     public interface IProductBusiness : ICRUD<Product>
     {
-        decimal GetPrice(int quantity);
-
         Product GetProductById(int productId);
     }
 }
