@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LISTAEMPLEADOS>
+<Empleado>
+<NOMBRE>Aldana</NOMBRE>
+  <APELLIDO>Godoy</APELLIDO>
+  <EDAD>24</EDAD>
+  <CARGO>Directora</CARGO>
+</Empleado>
+<Empleado>
+<NOMBRE>Guillermo</NOMBRE>
+  <APELLIDO>Ezquivel</APELLIDO>
+  <EDAD>25</EDAD>
+  <CARGO>Empleado</CARGO>
+</Empleado>
+<Empleado>
+<NOMBRE>Juan</NOMBRE>
+  <APELLIDO>Martinez Rios</APELLIDO>
+  <EDAD>27</EDAD>
+  <CARGO>Empleado</CARGO>
+</Empleado>
+<Empleado>
+<NOMBRE>Nicolas</NOMBRE>
+  <APELLIDO>Azzara</APELLIDO>
+  <EDAD>31</EDAD>
+  <CARGO>Empleado</CARGO>
+</Empleado>
+</LISTAEMPLEADOS>

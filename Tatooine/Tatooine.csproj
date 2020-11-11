@@ -181,6 +181,8 @@
     <Content Include="Scripts\sweetalert2.all.min.js" />
     <Content Include="Views\Bitacora.aspx" />
     <Content Include="Views\Cart.aspx" />
+    <Content Include="Views\empleados.xml" />
+    <Content Include="Views\Employee.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\About.aspx" />
     <Content Include="Views\Backup.aspx" />
@@ -274,6 +276,13 @@
     </Compile>
     <Compile Include="Views\Cart.aspx.designer.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Employee.aspx.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Employee.aspx.designer.cs">
+      <DependentUpon>Employee.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

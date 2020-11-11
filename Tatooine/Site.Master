@@ -15,7 +15,6 @@
 
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <webopt:BundleReference runat="server" Path="~/Css/Style.min.css" />
-
 </head>
 <body>
     <form runat="server">
@@ -81,6 +80,7 @@
                             <li><a runat="server" href="~/Views/Backup">Backup</a></li>
                             <li><a runat="server" href="~/Views/Restore">Restore</a></li>
                             <li><a runat="server" href="~/Views/Bitacora">Bitacora</a></li>
+                            <li><a runat="server" href="~/Views/Employee">Empleados</a></li>
                             <% } %>
                         </ul>
                         <% if (user != null)
