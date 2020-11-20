@@ -23,10 +23,16 @@
             if (ConfirmInput.Text == PasswordInput.Text)
             {
                 userBusiness.Add(new BE.User() { Name = NameInput.Text, Password = PasswordInput.Text, UserName = UsernameInput.Text });
+
                 integrityBusiness.UpdateIntegrity();
+
                 GlobalContext.Properties["usuario"] = UsernameInput.Text;
+
                 Log4netExtensions.Baja(log, "Se ha creado un nuevo usuario");
+
                 bitacoraBusiness.UpdateBitacoraDvh();
+
+                integrityBusiness.UpdateIntegrity();
 
             }
             this.SendAlert("Usuario creado");

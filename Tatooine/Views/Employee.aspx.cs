@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BE;
+using System;
 using System.Text;
 using System.Web.UI;
 using System.Xml;
@@ -9,6 +10,7 @@ namespace Tatooine.Views
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            CheckLogin();
             employees.InnerHtml = ReadXml();
         }
 
@@ -70,5 +72,14 @@ namespace Tatooine.Views
             return XmlReader.Create($"{path}Views\\empleados.xml");
         }
 
+        private void CheckLogin()
+        {
+            var user = (User)Session["user"];
+
+            if (user == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
+        }
     }
 }

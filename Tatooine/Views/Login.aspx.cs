@@ -25,9 +25,9 @@
             var tables = DatabaseConection.GetTables();
             var defaultTables = tablesBusines.GetDefaultTables();
 
-            var missingTable = defaultTables.All(value => tables.Contains(value));
+            var notMissingTable = defaultTables.All(value => tables.Contains(value));
 
-            if (missingTable)
+            if (notMissingTable)
             {
                 var loggedUser = accountBusiness.LogIn(UsernameInput.Text, PasswordInput.Text);
 
@@ -59,8 +59,8 @@
                     if (loggedUser != null && isAdmin(loggedUser))
                     {
                         PageExtensions.ShowInteractiveAlert(this, "error", "Error", "Error en la integridad de la base de datos. Por favor, recalcule los dígitos.", "Calcular Dígitos");
-              
-                       
+
+
                     }
                     else
                     {
@@ -71,7 +71,13 @@
             }
             else
             {
-                PageExtensions.ShowInformativeAlert(this, "error", "Error", "Se borraron tablas de la base de datos. Por favor, realice un restore o comuniquese con el administrador.", 1, 1000);
+                foreach (var table in tables)
+                {
+                    defaultTables.Remove(table);
+                }
+
+                PageExtensions.ShowInformativeAlert(this, "error", "Error", $"Se borraron tablas de la base de datos. Por favor, realice un restore o comuniquese con el administrador. Las tablas borradas son: {string.Join(",", defaultTables)}", 1, 1000);
+
             }
         }
 

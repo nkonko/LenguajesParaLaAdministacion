@@ -18,19 +18,14 @@
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            var user = (User)Session["user"];
-
-            if (user == null)
-            {
-                Response.Redirect("Login.aspx");
-            }
-
+            CheckLogin();
         }
 
         protected void Page_Init(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
+                CheckLogin();
                 ProductList = productBusiness.Get();
                 Repeater1.DataSource = ProductList;
                 Repeater1.DataBind();
@@ -57,6 +52,16 @@
 
                     textBox.Text = string.Empty;
                 }
+            }
+        }
+
+        private void CheckLogin()
+        {
+            var user = (User)Session["user"];
+
+            if (user == null)
+            {
+                Response.Redirect("Login.aspx");
             }
         }
     }

@@ -24,7 +24,8 @@
                 "PatentFamily",
                 "Solicitud",
                 "UserPatent",
-                "UserFamily"
+                "UserFamily",
+                "Product"
             };
         }
     }
